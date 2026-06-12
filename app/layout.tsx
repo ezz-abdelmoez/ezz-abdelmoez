@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'COMPUTE - AI Agents for Distributed Computing',
-  description: 'Deploy autonomous AI agents on distributed infrastructure. Offload complex tasks to intelligent workers that run 24/7.',
+  title: 'Ezz Abdelmoez - Full Stack Developer (.NET & React)',
+  description: 'Full Stack Developer specializing in ASP.NET Core and React. Building scalable web applications with clean architecture and modern best practices.',
   generator: 'v0.app',
 }
 
