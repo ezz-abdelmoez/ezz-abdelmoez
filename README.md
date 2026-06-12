@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Header Banner -->
-<img src="https://avatars.githubusercontent.com/u/115721984?s=400&u=db6233d59328bcc7564a64967dd1222351c8ad1b&v=4" width="80"/>
+<img src="https://avatars.githubusercontent.com/u/115721984?s=400&u=db6233d59328bcc7564a64967dd1222351c8ad1b&v=4" width="300"/>
 
 <!-- Typing Animation -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=A78BFA&center=true&vCenter=true&multiline=true&width=700&height=80&lines=Building+scalable+web+apps+with+.NET+%26+React;Clean+Architecture+%7C+REST+APIs+%7C+SQL+Server;Available+for+remote+%26+on-site+opportunities)](https://git.io/typing-svg)
@@ -193,7 +193,7 @@ ezz.Passion = "Clean Architecture · Scalable APIs · Seamless UX";
     <td width="50%">
       <h3 align="center">🍽️ Restaurant Management System</h3>
       <p align="center">
-        <a href="https://github.com/ezzabdelmoez">
+        <a href="https://github.com/ezz-abdelmoez">
           <img src="https://img.shields.io/badge/Code-181717?style=for-the-badge&logo=github&logoColor=white"/>
         </a>
       </p>
@@ -214,16 +214,16 @@ ezz.Passion = "Clean Architecture · Scalable APIs · Seamless UX";
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=ezzabdelmoez&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&bg_color=0d1117&title_color=a78bfa&icon_color=a78bfa&text_color=c9d1d9" height="180"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezzabdelmoez&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=a78bfa&text_color=c9d1d9&langs_count=8" height="180"/>
+<img src="https://github-readme-stats.vercel.app/api?username=ezz-abdelmoez&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&bg_color=0d1117&title_color=a78bfa&icon_color=a78bfa&text_color=c9d1d9" height="180"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ezz-abdelmoez&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=a78bfa&text_color=c9d1d9&langs_count=8" height="180"/>
 
 <br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=ezzabdelmoez&theme=tokyonight&hide_border=true&background=0d1117&ring=a78bfa&fire=a78bfa&currStreakLabel=a78bfa" width="70%"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=ezz-abdelmoez&theme=tokyonight&hide_border=true&background=0d1117&ring=a78bfa&fire=a78bfa&currStreakLabel=a78bfa" width="70%"/>
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ezzabdelmoez&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=a78bfa&line=7c3aed&point=a78bfa" width="100%"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=ezz-abdelmoez&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=a78bfa&line=7c3aed&point=a78bfa" width="100%"/>
 
 </div>
 
