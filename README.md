@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Header Banner -->
-<img src="https://avatars.githubusercontent.com/u/115721984?s=400&u=db6233d59328bcc7564a64967dd1222351c8ad1b&v=4" width="100%"/>
+<img src="https://avatars.githubusercontent.com/u/115721984?s=400&u=db6233d59328bcc7564a64967dd1222351c8ad1b&v=4" width="80"/>
 
 <!-- Typing Animation -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=A78BFA&center=true&vCenter=true&multiline=true&width=700&height=80&lines=Building+scalable+web+apps+with+.NET+%26+React;Clean+Architecture+%7C+REST+APIs+%7C+SQL+Server;Available+for+remote+%26+on-site+opportunities)](https://git.io/typing-svg)
@@ -14,7 +14,7 @@
   <a href="mailto:ezzabdelmoez@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
-  <a href="https://github.com/ezzabdelmoez">
+  <a href="https://github.com/ezz-abdelmoez">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
   <a href="https://v0-ezz-abdelmoez.vercel.app/">
