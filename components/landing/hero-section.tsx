@@ -165,7 +165,9 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
-        <div className="lg:max-w-[55%]">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Text content */}
+          <div>
         {/* Eyebrow */}
         <div 
           className={`mb-8 transition-all duration-700 ${
@@ -196,6 +198,21 @@ export function HeroSection() {
           </h1>
         </div>
         </div>
+
+          {/* Right: Profile image */}
+          <div className={`hidden lg:block transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+          }`}>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl" />
+              <img
+                src="/me.jpeg"
+                alt="Ezz Abdelmoez"
+                className="relative w-80 max-w-md mx-auto rounded-full object-cover shadow-2xl border border-white/10"
+              />
+            </div>
+          </div>
+        </div>
       </div>
       
       {/* Stats — 3 metrics static, no auto-scroll */}
@@ -206,8 +223,8 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "4+", label: "years of development" },
-            { value: "15+", label: "projects delivered" },
+            { value: "1+", label: "years of development" },
+            { value: "10+", label: "projects delivered" },
             { value: "Full Stack", label: ".NET & React expert" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">

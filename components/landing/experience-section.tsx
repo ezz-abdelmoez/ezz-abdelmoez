@@ -24,6 +24,18 @@ const experience = [
       "Database design and optimization",
       "Clean architecture principles"
     ]
+  },
+  {
+    role: "IT Support Intern",
+    company: "Agricultural Bank of Egypt (Luxor Branches)",
+    period: "Oct 2023 – Dec 2023",
+    description: "Provided system maintenance, software updates, and technical support across multiple Agricultural Bank of Egypt branches in Luxor Governorate, ensuring reliable system performance and resolving technical issues.",
+    highlights: [
+      "System maintenance across multiple branches",
+      "Software updates and installations",
+      "Technical support and troubleshooting",
+      "Ensured reliable system performance"
+    ]
   }
 ];
 

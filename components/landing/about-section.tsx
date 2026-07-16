@@ -27,11 +27,11 @@ export function AboutSection() {
           {/* Right: Stats grid */}
           <div className="grid grid-cols-2 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/10 transition-colors">
-              <div className="text-4xl font-display text-white mb-2">4+</div>
+              <div className="text-4xl font-display text-white mb-2">1+</div>
               <p className="text-sm text-white/60">Years Experience</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/10 transition-colors">
-              <div className="text-4xl font-display text-white mb-2">15+</div>
+              <div className="text-4xl font-display text-white mb-2">10+</div>
               <p className="text-sm text-white/60">Projects Completed</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/10 transition-colors">

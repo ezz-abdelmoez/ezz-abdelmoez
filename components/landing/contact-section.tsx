@@ -1,9 +1,18 @@
 "use client";
 
-import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, Phone, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export function ContactSection() {
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const copyToClipboard = async (text: string, index: number) => {
+    await navigator.clipboard.writeText(text);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
+
   const contactLinks = [
     {
       icon: Mail,
@@ -57,19 +66,37 @@ export function ContactSection() {
           {contactLinks.map((contact, idx) => {
             const Icon = contact.icon;
             return (
-              <a
+              <div
                 key={idx}
-                href={contact.href}
-                target={contact.href.startsWith("http") ? "_blank" : undefined}
-                rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                className="group bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 relative"
               >
-                <Icon className="w-8 h-8 text-white/60 group-hover:text-white mb-4 transition-colors" />
-                <h3 className="text-sm font-mono text-white/50 mb-2">{contact.label}</h3>
-                <p className="text-white font-medium hover:text-white/80 transition-colors break-all">
-                  {contact.value}
-                </p>
-              </a>
+                <a
+                  href={contact.href}
+                  target={contact.href.startsWith("http") ? "_blank" : undefined}
+                  rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="block"
+                >
+                  <Icon className="w-8 h-8 text-white/60 group-hover:text-white mb-4 transition-colors" />
+                  <h3 className="text-sm font-mono text-white/50 mb-2">{contact.label}</h3>
+                  <p className="text-white font-medium hover:text-white/80 transition-colors break-all">
+                    {contact.value}
+                  </p>
+                </a>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    copyToClipboard(contact.value, idx);
+                  }}
+                  className="absolute top-4 right-4 p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                  aria-label="Copy to clipboard"
+                >
+                  {copiedIndex === idx ? (
+                    <Check className="w-4 h-4 text-green-400" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-white/60 hover:text-white" />
+                  )}
+                </button>
+              </div>
             );
           })}
         </div>

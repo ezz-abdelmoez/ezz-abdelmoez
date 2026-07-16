@@ -72,12 +72,14 @@ export function Navigation() {
             >
               Email me
             </a>
-            <Button
-              size="sm"
-              className={`rounded-full transition-all duration-500 ${isScrolled ? "bg-foreground hover:bg-foreground/90 text-background px-4 h-8 text-xs" : "bg-white hover:bg-white/90 text-black px-6"}`}
-            >
-              Download CV
-            </Button>
+            <a href="/Ezz_Abdelmoez_Ahmed_Mohamed.pdf" download>
+              <Button
+                size="sm"
+                className={`rounded-full transition-all duration-500 ${isScrolled ? "bg-foreground hover:bg-foreground/90 text-background px-4 h-8 text-xs" : "bg-white hover:bg-white/90 text-black px-6"}`}
+              >
+                Download CV
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -140,12 +142,14 @@ export function Navigation() {
             >
               Email me
             </Button>
-            <Button 
-              className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Download CV
-            </Button>
+            <a href="/Ezz_Abdelmoez_Ahmed_Mohamed.pdf" download className="flex-1">
+              <Button 
+                className="w-full bg-foreground text-background rounded-full h-14 text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Download CV
+              </Button>
+            </a>
           </div>
         </div>
       </div>
