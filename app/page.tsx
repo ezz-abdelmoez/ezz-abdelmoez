@@ -1,23 +1,38 @@
-import { Navigation } from "@/components/landing/navigation";
-import { HeroSection } from "@/components/landing/hero-section";
-import { AboutSection } from "@/components/landing/about-section";
-import { ProjectsSection } from "@/components/landing/projects-section";
-import { ExperienceSection } from "@/components/landing/experience-section";
-import { SkillsSection } from "@/components/landing/skills-section";
-import { ContactSection } from "@/components/landing/contact-section";
-import { FooterSection } from "@/components/landing/footer-section";
+import { About } from "@/components/portfolio/about";
+import { BackToTop } from "@/components/portfolio/back-to-top";
+import { Contact } from "@/components/portfolio/contact";
+import { Experience } from "@/components/portfolio/experience";
+import { Hero } from "@/components/portfolio/hero";
+import { Projects } from "@/components/portfolio/projects";
+import { SiteFooter } from "@/components/portfolio/site-footer";
+import { SiteHeader } from "@/components/portfolio/site-header";
+import { Skills } from "@/components/portfolio/skills";
+import { Teaching } from "@/components/portfolio/teaching";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <ContactSection />
-      <FooterSection />
-    </main>
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-white focus:px-5 focus:py-2 focus:text-sm focus:font-medium focus:text-black"
+      >
+        Skip to content
+      </a>
+
+      <SiteHeader />
+
+      <main id="main" className="relative overflow-x-clip">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Teaching />
+        <Contact />
+      </main>
+
+      <SiteFooter />
+      <BackToTop />
+    </>
   );
 }
