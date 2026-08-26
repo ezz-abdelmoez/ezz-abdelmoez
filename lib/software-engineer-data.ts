@@ -81,7 +81,7 @@ export const softwareEngineerSite: SiteContent = {
       href: cvHref,
       filename: "Ezz-Abdelmoez-Software-Engineer-CV.pdf",
       kind: "cv",
-      available: false,
+      available: true,
     },
     {
       id: "se-cover",
@@ -91,7 +91,7 @@ export const softwareEngineerSite: SiteContent = {
       href: coverHref,
       filename: "Ezz-Abdelmoez-Software-Engineer-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: false,
+      available: true,
     },
   ],
   copy: {
