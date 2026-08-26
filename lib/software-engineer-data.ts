@@ -154,7 +154,6 @@ export const softwareEngineerSite: SiteContent = {
     formSubjectPrefix: "Software Engineer enquiry from",
     footerBlurb:
       "Software Engineer building production web systems with ASP.NET Core, SQL Server and React — from Luxor, Egypt.",
-    otherTrack: { label: "Main portfolio", href: "/" },
   },
   seo: {
     title: "Software Engineer",
@@ -173,5 +172,17 @@ export const softwareEngineerSite: SiteContent = {
       "Luxor",
     ],
     jobTitle: "Software Engineer (.NET / React)",
+    knowsAbout: [
+      "Software Engineering",
+      "C#",
+      ".NET",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "SQL Server",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "REST APIs",
+    ],
   },
 };

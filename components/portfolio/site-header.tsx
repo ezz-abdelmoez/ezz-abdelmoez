@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
+import { TrackLinks, TrackMenu } from "@/components/portfolio/track-links";
 import { useSiteContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
@@ -145,7 +145,7 @@ export function SiteHeader() {
                     }}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "relative z-10 px-4 py-2 text-sm transition-colors duration-300",
+                      "relative z-10 px-3 py-2 text-sm transition-colors duration-300 lg:px-4",
                       isActive ? "text-white" : "text-white/55 hover:text-white",
                     )}
                   >
@@ -157,12 +157,7 @@ export function SiteHeader() {
 
             {/* Desktop actions */}
             <div className="hidden items-center gap-2 md:flex">
-              <Link
-                href={copy.otherTrack.href}
-                className="link-underline hidden px-2 text-sm text-white/45 transition-colors hover:text-white xl:inline"
-              >
-                {copy.otherTrack.label}
-              </Link>
+              <TrackMenu />
               <a
                 href={`mailto:${contactLinks.email}`}
                 className="link-underline px-2 text-sm text-white/60 transition-colors hover:text-white"
@@ -266,13 +261,11 @@ export function SiteHeader() {
             )}
           </div>
 
-          <Link
-            href={copy.otherTrack.href}
-            onClick={() => setMenuOpen(false)}
-            className="mt-4 text-center font-mono text-[11px] uppercase tracking-[0.16em] text-white/40"
-          >
-            {copy.otherTrack.label}
-          </Link>
+          <TrackLinks
+            className="mt-5 flex flex-col items-center gap-2"
+            linkClassName="font-mono text-[11px] uppercase tracking-[0.16em] text-white/40"
+            onNavigate={() => setMenuOpen(false)}
+          />
         </div>
       </div>
     </>

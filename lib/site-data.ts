@@ -437,7 +437,6 @@ export const site: SiteContent = {
     formSubjectPrefix: "Portfolio enquiry from",
     footerBlurb:
       "Building web applications end to end with ASP.NET Core, SQL Server and React — from Luxor, Egypt.",
-    otherTrack: { label: "Software Engineer track", href: "/software-engineer" },
   },
   seo: {
     title: "Ezz Abdelmoez — Full Stack Developer (.NET & React)",
@@ -457,6 +456,18 @@ export const site: SiteContent = {
       "Luxor",
     ],
     jobTitle: "Full Stack Developer (.NET / React)",
+    knowsAbout: [
+      "C#",
+      ".NET",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "SQL Server",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "REST APIs",
+      "React Native",
+    ],
   },
 };
 

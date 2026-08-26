@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { TrackLinks } from "@/components/portfolio/track-links";
 import { useSiteContent } from "@/lib/site-content";
 
 export function SiteFooter() {
@@ -25,7 +25,7 @@ export function SiteFooter() {
       />
 
       <div className="container-page relative">
-        <div className="grid gap-10 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:py-20">
+        <div className="grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] md:py-20">
           <div>
             <p className="font-display text-2xl text-white">{profile.name}</p>
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-gold/70">
@@ -51,15 +51,17 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
-              <li>
-                <Link
-                  href={copy.otherTrack.href}
-                  className="link-underline text-sm text-white/55 transition-colors hover:text-white"
-                >
-                  {copy.otherTrack.label}
-                </Link>
-              </li>
             </ul>
+          </nav>
+
+          <nav aria-label="Portfolio tracks">
+            <h2 className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-white/35">
+              Tracks
+            </h2>
+            <TrackLinks
+              className="space-y-3"
+              linkClassName="link-underline text-sm text-white/55 transition-colors hover:text-white"
+            />
           </nav>
 
           <div>
