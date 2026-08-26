@@ -3,6 +3,7 @@
 import {
   Database,
   LayoutTemplate,
+  Monitor,
   Palette,
   Server,
   Smartphone,
@@ -21,6 +22,8 @@ const icons: Record<string, LucideIcon> = {
   database: Database,
   smartphone: Smartphone,
   wrench: Wrench,
+  palette: Palette,
+  monitor: Monitor,
 };
 
 const spans = [
