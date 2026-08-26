@@ -290,7 +290,7 @@ export const frontendEngineerSite: SiteContent = {
       href: cvHref,
       filename: "Ezz-Abdelmoez-Frontend-Engineer-CV.pdf",
       kind: "cv",
-      available: false,
+      available: true,
     },
     {
       id: "fe-cover",
@@ -300,7 +300,7 @@ export const frontendEngineerSite: SiteContent = {
       href: coverHref,
       filename: "Ezz-Abdelmoez-Frontend-Engineer-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: false,
+      available: true,
     },
   ],
   copy: {
