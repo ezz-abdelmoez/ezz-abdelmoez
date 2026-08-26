@@ -245,7 +245,7 @@ export const desktopEngineerSite: SiteContent = {
       href: cvHref,
       filename: "Ezz-Abdelmoez-Desktop-Engineer-CV.pdf",
       kind: "cv",
-      available: false,
+      available: true,
     },
     {
       id: "de-cover",
@@ -255,7 +255,7 @@ export const desktopEngineerSite: SiteContent = {
       href: coverHref,
       filename: "Ezz-Abdelmoez-Desktop-Engineer-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: false,
+      available: true,
     },
   ],
   copy: {
