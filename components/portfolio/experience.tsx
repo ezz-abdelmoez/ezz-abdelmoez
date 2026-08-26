@@ -1,22 +1,21 @@
 "use client";
 
 import { Award, Briefcase, GraduationCap, Languages as LanguagesIcon } from "lucide-react";
-import { certifications, education, languages, timeline } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { Reveal, Section, SectionHeader } from "./primitives";
+import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
 
 export function Experience() {
+  const { certifications, education, languages, timeline, copy } = useSiteContent();
+
   return (
     <Section id="experience" className="border-t border-white/[0.06]">
       <SectionHeader
-        index="04"
-        eyebrow="The path so far"
-        title={
-          <>
-            Experience &amp; <span className="text-gradient">education</span>
-          </>
-        }
-        lead="From a computer science degree in Luxor, through ITI's .NET track, to shipping production software."
+        index={copy.experience.index}
+        eyebrow={copy.experience.eyebrow}
+        title={<SectionTitle copy={copy.experience} />}
+        lead={copy.experience.lead}
       />
 
       <div className="grid gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">

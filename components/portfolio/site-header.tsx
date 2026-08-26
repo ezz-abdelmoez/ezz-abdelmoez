@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
-import { contactLinks, navLinks, profile } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
-const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
-
 export function SiteHeader() {
+  const { navLinks, profile, contactLinks, documents, copy } = useSiteContent();
+  const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+  const cv = documents.find((d) => d.kind === "cv" && d.available);
+  const resumeHref = cv?.href ?? profile.resume;
+  const resumeReady = documents.length === 0 || Boolean(cv);
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState<string>("");
@@ -54,7 +59,7 @@ export function SiteHeader() {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [sectionIds.join("|")]);
 
   /* Sliding pill behind the active nav link ------------------------ */
   useEffect(() => {
@@ -115,7 +120,7 @@ export function SiteHeader() {
                 Ezz
               </span>
               <span className="hidden font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 sm:inline">
-                .NET / React
+                {copy.headerSubtitle}
               </span>
             </a>
 
@@ -152,20 +157,35 @@ export function SiteHeader() {
 
             {/* Desktop actions */}
             <div className="hidden items-center gap-2 md:flex">
+              <Link
+                href={copy.otherTrack.href}
+                className="link-underline hidden px-2 text-sm text-white/45 transition-colors hover:text-white xl:inline"
+              >
+                {copy.otherTrack.label}
+              </Link>
               <a
                 href={`mailto:${contactLinks.email}`}
                 className="link-underline px-2 text-sm text-white/60 transition-colors hover:text-white"
               >
                 Email
               </a>
-              <a
-                href={profile.resume}
-                download
-                className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
-              >
-                <Download className="h-3.5 w-3.5" />
-                Résumé
-              </a>
+              {resumeReady ? (
+                <a
+                  href={resumeHref}
+                  download
+                  className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Résumé
+                </a>
+              ) : (
+                <a
+                  href="#documents"
+                  className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
+                >
+                  Documents
+                </a>
+              )}
             </div>
 
             {/* Mobile trigger */}
@@ -225,16 +245,34 @@ export function SiteHeader() {
               Email me
               <ArrowUpRight className="h-4 w-4" />
             </a>
-            <a
-              href={profile.resume}
-              download
-              onClick={() => setMenuOpen(false)}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-sm font-medium text-black"
-            >
-              <Download className="h-4 w-4" />
-              Résumé
-            </a>
+            {resumeReady ? (
+              <a
+                href={resumeHref}
+                download
+                onClick={() => setMenuOpen(false)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-sm font-medium text-black"
+              >
+                <Download className="h-4 w-4" />
+                Résumé
+              </a>
+            ) : (
+              <a
+                href="#documents"
+                onClick={() => setMenuOpen(false)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-sm font-medium text-black"
+              >
+                Documents
+              </a>
+            )}
           </div>
+
+          <Link
+            href={copy.otherTrack.href}
+            onClick={() => setMenuOpen(false)}
+            className="mt-4 text-center font-mono text-[11px] uppercase tracking-[0.16em] text-white/40"
+          >
+            {copy.otherTrack.label}
+          </Link>
         </div>
       </div>
     </>

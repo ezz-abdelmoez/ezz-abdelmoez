@@ -2,26 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, MapPin } from "lucide-react";
-import { contactLinks, coreStack, heroStats, profile } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { GlowOrb } from "./primitives";
 
-const rotating = ["ship", "scale", "last", "matter"];
-
-function RotatingWord() {
+function RotatingWord({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % rotating.length), 2600);
+    if (words.length < 2) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % words.length), 2600);
     return () => clearInterval(id);
-  }, []);
+  }, [words]);
 
-  const word = rotating[index];
+  const word = words[index] ?? "";
+  const widest = words.reduce((a, b) => (a.length >= b.length ? a : b), "");
 
   return (
     <span className="relative inline-block align-baseline">
       {/* reserve the widest word so the headline never reflows */}
       <span aria-hidden="true" className="invisible">
-        {rotating.reduce((a, b) => (a.length >= b.length ? a : b))}
+        {widest}
       </span>
       <span
         key={index}
@@ -34,6 +34,9 @@ function RotatingWord() {
 }
 
 export function Hero() {
+  const { profile, contactLinks, coreStack, heroStats, hero } = useSiteContent();
+  const [leftChip, rightChip] = hero.chips;
+
   return (
     <section id="top" className="noise relative isolate overflow-hidden">
       {/* ── Backdrop ───────────────────────────────────────────── */}
@@ -61,8 +64,13 @@ export function Hero() {
                   <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-gold" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
                 </span>
-                Available for work
+                {hero.availabilityLabel}
               </span>
+              {hero.trackBadge && (
+                <span className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/55">
+                  {hero.trackBadge}
+                </span>
+              )}
               <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/40">
                 <MapPin className="h-3 w-3" />
                 {profile.location}
@@ -70,32 +78,33 @@ export function Hero() {
             </div>
 
             <h1 className="font-display text-[clamp(2.75rem,8.5vw,5.75rem)] leading-[0.95] tracking-tight text-white">
-              <span className="block">Solutions</span>
+              <span className="block">{hero.headlineLine1}</span>
               <span className="block">
-                that <RotatingWord />
+                {hero.headlineLine2Before} <RotatingWord words={hero.rotatingWords} />
               </span>
             </h1>
 
             <p className="mt-7 max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
-              I&apos;m <span className="text-white">{profile.name}</span>, a full stack developer
-              in Luxor, Egypt. I build web applications end to end —{" "}
-              <span className="text-white/85">ASP.NET Core</span> APIs and SQL Server data models
-              underneath, <span className="text-white/85">React</span> interfaces on top.
+              {hero.introBeforeName} <span className="text-white">{profile.name}</span>
+              {hero.introAfterName}{" "}
+              <span className="text-white/85">{hero.introHighlight1}</span>
+              {hero.introMid} <span className="text-white/85">{hero.introHighlight2}</span>
+              {hero.introAfter}
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a
-                href="#work"
+                href={hero.primaryCta.href}
                 className="group inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_16px_40px_-16px_rgb(var(--gold))]"
               >
-                View selected work
+                {hero.primaryCta.label}
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
-                href="#contact"
+                href={hero.secondaryCta.href}
                 className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 text-sm text-white/80 transition-colors duration-300 hover:border-white/35 hover:text-white"
               >
-                Get in touch
+                {hero.secondaryCta.label}
               </a>
 
               <div className="ml-1 flex items-center gap-1">
@@ -153,21 +162,24 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Floating chips */}
-              <div
-                className="animate-float absolute -left-4 top-10 hidden rounded-xl border border-white/10 bg-background/85 px-3 py-2 shadow-xl backdrop-blur-md sm:block"
-                style={{ animationDelay: "0.4s" }}
-              >
-                <p className="font-mono text-[10px] text-white/45">backend</p>
-                <p className="text-sm text-white">ASP.NET Core</p>
-              </div>
-              <div
-                className="animate-float absolute -right-3 bottom-16 hidden rounded-xl border border-white/10 bg-background/85 px-3 py-2 shadow-xl backdrop-blur-md sm:block"
-                style={{ animationDelay: "1.6s" }}
-              >
-                <p className="font-mono text-[10px] text-white/45">frontend</p>
-                <p className="text-sm text-white">React · Next.js</p>
-              </div>
+              {leftChip && (
+                <div
+                  className="animate-float absolute -left-4 top-10 hidden rounded-xl border border-white/10 bg-background/85 px-3 py-2 shadow-xl backdrop-blur-md sm:block"
+                  style={{ animationDelay: "0.4s" }}
+                >
+                  <p className="font-mono text-[10px] text-white/45">{leftChip.kicker}</p>
+                  <p className="text-sm text-white">{leftChip.label}</p>
+                </div>
+              )}
+              {rightChip && (
+                <div
+                  className="animate-float absolute -right-3 bottom-16 hidden rounded-xl border border-white/10 bg-background/85 px-3 py-2 shadow-xl backdrop-blur-md sm:block"
+                  style={{ animationDelay: "1.6s" }}
+                >
+                  <p className="font-mono text-[10px] text-white/45">{rightChip.kicker}</p>
+                  <p className="text-sm text-white">{rightChip.label}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -1,10 +1,13 @@
 "use client";
 
 import { BookOpen, GraduationCap, Sparkle } from "lucide-react";
-import { beyondCode, teaching } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { Chip, GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
+import { SectionTitle } from "./section-title";
 
 export function Teaching() {
+  const { beyondCode, teaching, copy } = useSiteContent();
+
   return (
     <Section
       id="teaching"
@@ -16,13 +19,9 @@ export function Teaching() {
       }
     >
       <SectionHeader
-        index="05"
-        eyebrow="Teaching"
-        title={
-          <>
-            Explaining code in <span className="text-gradient">Arabic</span>.
-          </>
-        }
+        index={copy.teaching.index}
+        eyebrow={copy.teaching.eyebrow}
+        title={<SectionTitle copy={copy.teaching} />}
       />
 
       <Reveal>

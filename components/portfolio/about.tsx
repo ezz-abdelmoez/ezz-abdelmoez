@@ -1,10 +1,13 @@
 "use client";
 
 import { Quote } from "lucide-react";
-import { profile, quickFacts } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
+import { SectionTitle } from "./section-title";
 
 export function About() {
+  const { profile, quickFacts, copy } = useSiteContent();
+
   return (
     <Section
       id="about"
@@ -15,15 +18,9 @@ export function About() {
       }
     >
       <SectionHeader
-        index="01"
-        eyebrow="About"
-        title={
-          <>
-            A developer who likes
-            <br className="hidden sm:block" /> the <span className="text-gradient">whole</span>{" "}
-            stack.
-          </>
-        }
+        index={copy.about.index}
+        eyebrow={copy.about.eyebrow}
+        title={<SectionTitle copy={copy.about} />}
       />
 
       <div className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20">
