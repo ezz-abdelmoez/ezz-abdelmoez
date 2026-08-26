@@ -3,6 +3,7 @@
 import {
   Database,
   LayoutTemplate,
+  Palette,
   Server,
   Smartphone,
   Sparkles,

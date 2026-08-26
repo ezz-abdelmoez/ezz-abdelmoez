@@ -1,15 +1,15 @@
 import { PortfolioPage } from "@/components/portfolio/portfolio-page";
+import { frontendEngineerSite } from "@/lib/frontend-engineer-data";
 import { SiteContentProvider } from "@/lib/site-content";
-import { softwareEngineerSite } from "@/lib/software-engineer-data";
 import { buildPersonJsonLd, buildTrackMetadata } from "@/lib/track-seo";
 import { withAvailableDocuments } from "@/lib/with-available-documents";
 
-export const metadata = buildTrackMetadata(softwareEngineerSite);
+export const metadata = buildTrackMetadata(frontendEngineerSite);
 
-const personJsonLd = buildPersonJsonLd(softwareEngineerSite);
+const personJsonLd = buildPersonJsonLd(frontendEngineerSite);
 
-export default function SoftwareEngineerPage() {
-  const content = withAvailableDocuments(softwareEngineerSite);
+export default function FrontendEngineerPage() {
+  const content = withAvailableDocuments(frontendEngineerSite);
 
   return (
     <SiteContentProvider value={content}>
