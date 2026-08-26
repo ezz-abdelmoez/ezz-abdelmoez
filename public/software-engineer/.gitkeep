@@ -1,0 +1,4 @@
+# Place the tailored PDFs in this folder:
+#   Ezz-Abdelmoez-Software-Engineer-CV.pdf
+#   Ezz-Abdelmoez-Software-Engineer-Cover-Letter.pdf
+# Then set `available: true` on the matching documents in lib/software-engineer-data.ts

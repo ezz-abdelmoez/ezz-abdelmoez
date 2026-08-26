@@ -6,6 +6,7 @@ import {
   Check,
   Clock,
   Copy,
+  FileSignature,
   Github,
   Linkedin,
   Mail,
@@ -13,39 +14,9 @@ import {
   Phone,
   Send,
 } from "lucide-react";
-import { contactLinks, profile } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
-
-const channels = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: contactLinks.email,
-    href: `mailto:${contactLinks.email}`,
-    copyable: true,
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: contactLinks.phone,
-    href: `tel:${contactLinks.phone}`,
-    copyable: true,
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: contactLinks.linkedinHandle,
-    href: contactLinks.linkedin,
-    copyable: false,
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: contactLinks.githubHandle,
-    href: contactLinks.github,
-    copyable: false,
-  },
-] as const;
+import { SectionTitle } from "./section-title";
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -77,6 +48,7 @@ function CopyButton({ value, label }: { value: string; label: string }) {
 }
 
 function MessageForm() {
+  const { contactLinks, copy } = useSiteContent();
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -86,7 +58,7 @@ function MessageForm() {
     const email = String(data.get("email") || "").trim();
     const message = String(data.get("message") || "").trim();
 
-    const subject = encodeURIComponent(`Portfolio enquiry from ${name || "someone"}`);
+    const subject = encodeURIComponent(`${copy.formSubjectPrefix} ${name || "someone"}`);
     const body = encodeURIComponent(
       `${message}\n\n—\n${name}${email ? `\n${email}` : ""}`,
     );
@@ -168,6 +140,43 @@ function MessageForm() {
 }
 
 export function Contact() {
+  const { contactLinks, profile, documents, copy } = useSiteContent();
+  const cv = documents.find((d) => d.kind === "cv" && d.available);
+  const cover = documents.find((d) => d.kind === "cover-letter" && d.available);
+  const resumeHref = cv?.href ?? profile.resume;
+  const showResume = Boolean(cv || documents.length === 0);
+
+  const channels = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: contactLinks.email,
+      href: `mailto:${contactLinks.email}`,
+      copyable: true,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: contactLinks.phone,
+      href: `tel:${contactLinks.phone}`,
+      copyable: true,
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: contactLinks.linkedinHandle,
+      href: contactLinks.linkedin,
+      copyable: false,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: contactLinks.githubHandle,
+      href: contactLinks.github,
+      copyable: false,
+    },
+  ] as const;
+
   return (
     <Section
       id="contact"
@@ -179,21 +188,14 @@ export function Contact() {
       }
     >
       <SectionHeader
-        index="06"
-        eyebrow="Contact"
-        title={
-          <>
-            Let&apos;s build something <span className="text-gradient">together</span>.
-          </>
-        }
+        index={copy.contact.index}
+        eyebrow={copy.contact.eyebrow}
+        title={<SectionTitle copy={copy.contact} />}
       />
 
       <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
         <div>
-          <p className="max-w-lg text-lg leading-relaxed text-white/60">
-            I&apos;m looking for full stack or .NET roles, and I&apos;m happy to talk about
-            freelance work too. Tell me what you&apos;re building — I usually reply within a day.
-          </p>
+          <p className="max-w-lg text-lg leading-relaxed text-white/60">{copy.contactBody}</p>
 
           <div className="mt-7 flex flex-wrap gap-3">
             <a
@@ -203,13 +205,33 @@ export function Contact() {
               {contactLinks.email}
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
-            <a
-              href={profile.resume}
-              download
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 text-sm text-white/80 transition-colors hover:border-white/35 hover:text-white"
-            >
-              Download résumé
-            </a>
+            {showResume && (
+              <a
+                href={resumeHref}
+                download
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 text-sm text-white/80 transition-colors hover:border-white/35 hover:text-white"
+              >
+                Download résumé
+              </a>
+            )}
+            {cover && (
+              <a
+                href={cover.href}
+                download
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 text-sm text-white/80 transition-colors hover:border-white/35 hover:text-white"
+              >
+                <FileSignature className="h-4 w-4" />
+                Cover letter
+              </a>
+            )}
+            {!showResume && documents.length > 0 && (
+              <a
+                href="#documents"
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 text-sm text-white/80 transition-colors hover:border-white/35 hover:text-white"
+              >
+                View documents
+              </a>
+            )}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 font-mono text-[11px] uppercase tracking-[0.14em] text-white/40">

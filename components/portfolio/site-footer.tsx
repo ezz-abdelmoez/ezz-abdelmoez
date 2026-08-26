@@ -1,15 +1,22 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { contactLinks, navLinks, profile } from "@/lib/site-data";
-
-const social = [
-  { name: "GitHub", href: contactLinks.github },
-  { name: "LinkedIn", href: contactLinks.linkedin },
-  { name: "Email", href: `mailto:${contactLinks.email}` },
-];
+import { useSiteContent } from "@/lib/site-content";
 
 export function SiteFooter() {
+  const { contactLinks, navLinks, profile, documents, copy } = useSiteContent();
+  const cv = documents.find((d) => d.kind === "cv" && d.available);
+  const cover = documents.find((d) => d.kind === "cover-letter" && d.available);
+  const resumeHref = cv?.href ?? profile.resume;
+  const showResume = documents.length === 0 || Boolean(cv);
+
+  const social = [
+    { name: "GitHub", href: contactLinks.github },
+    { name: "LinkedIn", href: contactLinks.linkedin },
+    { name: "Email", href: `mailto:${contactLinks.email}` },
+  ];
+
   return (
     <footer className="relative overflow-hidden border-t border-white/[0.06]">
       <div
@@ -25,8 +32,7 @@ export function SiteFooter() {
               {profile.tagline}
             </p>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/45">
-              Building web applications end to end with ASP.NET Core, SQL Server and React — from
-              Luxor, Egypt.
+              {copy.footerBlurb}
             </p>
           </div>
 
@@ -45,6 +51,14 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={copy.otherTrack.href}
+                  className="link-underline text-sm text-white/55 transition-colors hover:text-white"
+                >
+                  {copy.otherTrack.label}
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -66,16 +80,30 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href={profile.resume}
-                  download
-                  className="group inline-flex items-center gap-1 text-sm text-white/55 transition-colors hover:text-white"
-                >
-                  Résumé (PDF)
-                  <ArrowUpRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                </a>
-              </li>
+              {showResume && (
+                <li>
+                  <a
+                    href={resumeHref}
+                    download
+                    className="group inline-flex items-center gap-1 text-sm text-white/55 transition-colors hover:text-white"
+                  >
+                    Résumé (PDF)
+                    <ArrowUpRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                  </a>
+                </li>
+              )}
+              {cover && (
+                <li>
+                  <a
+                    href={cover.href}
+                    download
+                    className="group inline-flex items-center gap-1 text-sm text-white/55 transition-colors hover:text-white"
+                  >
+                    Cover letter (PDF)
+                    <ArrowUpRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

@@ -1,8 +1,10 @@
 "use client";
 
 import { ArrowUpRight, Check, Code2, Github, Layers } from "lucide-react";
-import { projects, type Project } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
+import type { Project } from "@/lib/site-types";
 import { Chip, GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
+import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
 
 function ProjectVisual({ project, index }: { project: Project; index: number }) {
@@ -153,6 +155,7 @@ function FeaturedProject({ project, index }: { project: Project; index: number }
 }
 
 export function Projects() {
+  const { projects, copy } = useSiteContent();
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
 
@@ -167,14 +170,10 @@ export function Projects() {
       }
     >
       <SectionHeader
-        index="03"
-        eyebrow="Selected work"
-        title={
-          <>
-            Products I&apos;ve <span className="text-gradient">built</span> end to end.
-          </>
-        }
-        lead="Booking platforms and management systems — the kind with roles, permissions, schedules and a lot of edge cases."
+        index={copy.work.index}
+        eyebrow={copy.work.eyebrow}
+        title={<SectionTitle copy={copy.work} />}
+        lead={copy.work.lead}
       />
 
       <div className="space-y-20 md:space-y-28">

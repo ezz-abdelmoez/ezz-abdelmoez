@@ -9,8 +9,9 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
-import { learning, skillGroups } from "@/lib/site-data";
+import { useSiteContent } from "@/lib/site-content";
 import { Chip, Reveal, Section, SectionHeader } from "./primitives";
+import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
 
 const icons: Record<string, LucideIcon> = {
@@ -30,17 +31,15 @@ const spans = [
 ];
 
 export function Skills() {
+  const { learning, skillGroups, copy } = useSiteContent();
+
   return (
     <Section id="skills" className="border-t border-white/[0.06]">
       <SectionHeader
-        index="02"
-        eyebrow="Toolkit"
-        title={
-          <>
-            The stack I <span className="text-gradient">actually</span> use.
-          </>
-        }
-        lead="Grouped by what it does rather than by logo count — these are the tools I've shipped real features with."
+        index={copy.skills.index}
+        eyebrow={copy.skills.eyebrow}
+        title={<SectionTitle copy={copy.skills} />}
+        lead={copy.skills.lead}
       />
 
       <div className="grid gap-4 md:grid-cols-6">
