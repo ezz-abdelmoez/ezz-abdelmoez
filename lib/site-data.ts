@@ -1,6 +1,9 @@
 /**
- * Default (home) portfolio content.
- * Edit this file to update / — /software-engineer has its own overlay.
+ * Default (home) portfolio content — Full Stack track at /.
+ *
+ * Upload the tailored PDFs here (availability is detected automatically):
+ *   public/full-stack/Ezz-Abdelmoez-Full-Stack-CV.pdf
+ *   public/full-stack/Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf
  */
 
 import type { SiteContent } from "@/lib/site-types";
@@ -18,7 +21,7 @@ export const site: SiteContent = {
     timezone: "GMT+2",
     available: true,
     availabilityNote: "Open to remote & on-site roles",
-    resume: "/Ezz_Abdelmoez_Ahmed_Mohamed.pdf",
+    resume: "/full-stack/Ezz-Abdelmoez-Full-Stack-CV.pdf",
     photo: "/me.jpeg",
     summary:
       "Full Stack .NET Developer with experience designing and developing scalable web applications using ASP.NET Core, React, Entity Framework Core and SQL Server. I build RESTful APIs, implement secure authentication and authorization, and craft responsive interfaces — with a bias toward clean architecture and code that stays readable six months later.",
@@ -42,6 +45,7 @@ export const site: SiteContent = {
     { name: "Work", href: "#work" },
     { name: "Path", href: "#experience" },
     { name: "Teaching", href: "#teaching" },
+    { name: "Docs", href: "#documents" },
     { name: "Contact", href: "#contact" },
   ],
   hero: {
@@ -377,7 +381,28 @@ export const site: SiteContent = {
       note: "Working through German at A1, and sharpening English for technical conversation.",
     },
   ],
-  documents: [],
+  documents: [
+    {
+      id: "fs-cv",
+      title: "Curriculum Vitae",
+      description:
+        "Full Stack Developer CV — tailored for .NET and React roles, with the end-to-end work in front.",
+      href: "/full-stack/Ezz-Abdelmoez-Full-Stack-CV.pdf",
+      filename: "Ezz-Abdelmoez-Full-Stack-CV.pdf",
+      kind: "cv",
+      available: false,
+    },
+    {
+      id: "fs-cover",
+      title: "Cover letter",
+      description:
+        "A one-page letter written for Full Stack Developer applications. Swap in the company name when you send it.",
+      href: "/full-stack/Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf",
+      filename: "Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf",
+      kind: "cover-letter",
+      available: false,
+    },
+  ],
   copy: {
     headerSubtitle: ".NET / React",
     about: {
@@ -424,9 +449,10 @@ export const site: SiteContent = {
       eyebrow: "Documents",
       titleBefore: "CV & ",
       titleAccent: "cover letter",
+      lead: "Role-specific PDFs for Full Stack Developer applications — a tailored CV and cover letter live here once they are uploaded.",
     },
     contact: {
-      index: "06",
+      index: "07",
       eyebrow: "Contact",
       titleBefore: "Let's build something ",
       titleAccent: "together",
