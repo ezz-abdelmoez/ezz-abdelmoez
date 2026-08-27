@@ -6,6 +6,7 @@ import {
   Monitor,
   Palette,
   Server,
+  Shield,
   Smartphone,
   Sparkles,
   Wrench,
