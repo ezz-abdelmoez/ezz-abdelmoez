@@ -21,7 +21,7 @@ I'd welcome the opportunity to discuss how I can contribute to [Company Name]'s 
 
 Best regards,
 Ezz Abdelmoez
-[Phone] | [Email] | [LinkedIn]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ### عربي
 **الموضوع:** التقديم على وظيفة Full Stack Developer (.NET & React) — عز عبدالمعز
@@ -37,7 +37,7 @@ Ezz Abdelmoez
 
 مع خالص التقدير،
 عز عبدالمعز
-[رقم الهاتف] | [الإيميل] | [لينكدإن]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ---
 
@@ -58,7 +58,7 @@ I'd be glad to discuss how my skills align with your team's needs. Thank you for
 
 Best regards,
 Ezz Abdelmoez
-[Phone] | [Email] | [LinkedIn]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ### عربي
 **الموضوع:** التقديم على وظيفة Software Engineer — عز عبدالمعز
@@ -74,7 +74,7 @@ Ezz Abdelmoez
 
 مع خالص التقدير،
 عز عبدالمعز
-[رقم الهاتف] | [الإيميل] | [لينكدإن]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ---
 
@@ -95,7 +95,7 @@ I'd love the chance to talk about how I can contribute to [Company Name]'s produ
 
 Best regards,
 Ezz Abdelmoez
-[Phone] | [Email] | [LinkedIn]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ### عربي
 **الموضوع:** التقديم على وظيفة Frontend Developer (React & Next.js) — عز عبدالمعز
@@ -111,7 +111,7 @@ Ezz Abdelmoez
 
 مع خالص التقدير،
 عز عبدالمعز
-[رقم الهاتف] | [الإيميل] | [لينكدإن]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ---
 
@@ -132,7 +132,7 @@ I'd welcome the opportunity to discuss my fit for this role with your team. Than
 
 Best regards,
 Ezz Abdelmoez
-[Phone] | [Email] | [LinkedIn]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ### عربي
 **الموضوع:** التقديم على وظيفة Desktop Developer (WPF & Windows Forms) — عز عبدالمعز
@@ -148,7 +148,7 @@ Ezz Abdelmoez
 
 مع خالص التقدير،
 عز عبدالمعز
-[رقم الهاتف] | [الإيميل] | [لينكدإن]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ---
 
@@ -169,7 +169,7 @@ I'd be glad to discuss how I can support [Company Name]'s backend team. Thank yo
 
 Best regards,
 Ezz Abdelmoez
-[Phone] | [Email] | [LinkedIn]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ### عربي
 **الموضوع:** التقديم على وظيفة Backend Developer (.NET) — عز عبدالمعز
@@ -185,7 +185,7 @@ Ezz Abdelmoez
 
 مع خالص التقدير،
 عز عبدالمعز
-[رقم الهاتف] | [الإيميل] | [لينكدإن]
++201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
 
 ---
 
