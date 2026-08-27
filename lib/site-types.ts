@@ -1,6 +1,6 @@
 /**
  * Shared shape for every portfolio track on the site.
- * Home and the /software-engineer, /frontend-engineer and /desktop-engineer tracks.
+ * Home and the software, frontend, desktop and backend engineer tracks.
  */
 
 export type NavLink = {
@@ -21,7 +21,7 @@ export type QuickFact = {
 export type SkillGroup = {
   title: string;
   blurb: string;
-  icon: "server" | "layout" | "database" | "smartphone" | "wrench" | "palette" | "monitor";
+  icon: "server" | "layout" | "database" | "smartphone" | "wrench" | "palette" | "monitor" | "shield";
   skills: string[];
 };
 
@@ -120,7 +120,7 @@ export type HeroCopy = {
 };
 
 export type SiteContent = {
-  slug: "home" | "software-engineer" | "frontend-engineer" | "desktop-engineer";
+  slug: "home" | "software-engineer" | "frontend-engineer" | "desktop-engineer" | "backend-engineer";
   basePath: string;
   profile: {
     name: string;
