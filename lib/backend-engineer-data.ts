@@ -308,7 +308,7 @@ export const backendEngineerSite: SiteContent = {
       href: cvHref,
       filename: "Ezz-Abdelmoez-Backend-Engineer-CV.pdf",
       kind: "cv",
-      available: false,
+      available: true,
     },
     {
       id: "be-cover",
@@ -318,7 +318,7 @@ export const backendEngineerSite: SiteContent = {
       href: coverHref,
       filename: "Ezz-Abdelmoez-Backend-Engineer-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: false,
+      available: true,
     },
   ],
   copy: {
