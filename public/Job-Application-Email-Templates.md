@@ -162,7 +162,7 @@ Dear [Hiring Manager's Name / Hiring Team],
 
 I'm applying for the Backend Developer position at [Company Name]. I focus on building scalable, secure backend systems and APIs using .NET, with strong experience in database design, system architecture, and performance optimization.
 
-Portfolio: [Add link once ready]
+Portfolio: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
 My CV and cover letter are attached with more details on my backend projects and experience.
 
 I'd be glad to discuss how I can support [Company Name]'s backend team. Thank you for your consideration.
@@ -178,7 +178,7 @@ Ezz Abdelmoez
 
 بتقدملكم على وظيفة Backend Developer. بركز على بناء أنظمة backend وAPIs قابلة للتوسع وآمنة باستخدام .NET، وعندي خبرة قوية في تصميم قواعد البيانات، ومعمارية الأنظمة، وتحسين الأداء.
 
-الأعمال بتاعتي: [هتتضاف لما البورتفوليو يخلص]
+الأعمال بتاعتي: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
 مرفق السيرة الذاتية وخطاب التقديم فيهم تفاصيل أكتر عن مشاريعي وخبرتي في الباك إند.
 
 يسعدني إني أتناقش معاكم عن إزاي أقدر أدعم فريق الباك إند عندكم. شكرًا لاهتمامكم.
