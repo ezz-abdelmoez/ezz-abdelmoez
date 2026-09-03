@@ -1,0 +1,146 @@
+# Portal scanner for Ezz Abdelmoez
+# Copy to: career-ops/portals.yml  (project root of a cloned career-ops repo)
+#
+# This does NOT log into LinkedIn or Indeed.
+# search_queries use public web search (site: filters).
+# You still open the listing and apply yourself.
+
+# -- Location: Egypt first, then remote that will take Egypt --
+location_filter:
+  always_allow:
+    - "Egypt"
+    - "Cairo"
+    - "Luxor"
+    - "Giza"
+    - "Alexandria"
+  allow:
+    - "Egypt"
+    - "Cairo"
+    - "Giza"
+    - "Alexandria"
+    - "Remote"
+    - "Worldwide"
+    - "EMEA"
+    - "Middle East"
+  block:
+    - "India"
+    - "Bengaluru"
+    - "United States only"
+    - "US only"
+    - "United Kingdom only"
+    - "UK only"
+
+country_eligibility_filter:
+  exclusionary:
+    - "must be located in the united states"
+    - "us-based candidates only"
+    - "authorized to work in the us without sponsorship"
+    - "must be based in the uk"
+    - "uk only"
+  inclusive:
+    - "egypt"
+    - "worldwide"
+    - "remote anywhere"
+    - "emea"
+
+title_filter:
+  positive:
+    - "Backend"
+    - "ASP.NET"
+    - ".NET"
+    - "C#"
+    - "Full Stack"
+    - "Full-Stack"
+    - "Software Engineer"
+    - "Software Developer"
+    - "Frontend"
+    - "React"
+    - "Next.js"
+    - "WPF"
+    - "WinForms"
+    - "Windows Forms"
+    - "Desktop"
+    - "Web API"
+  negative:
+    - "word:Intern"
+    - "word:Interns"
+    - "Internship"
+    - "Fresh Graduate only"
+    - "PHP"
+    - "Laravel"
+    - "Ruby"
+    - "word:Java"
+    - "iOS"
+    - "Android"
+    - "Embedded"
+    - "Firmware"
+    - "Blockchain"
+    - "Web3"
+    - "Salesforce Admin"
+    - "SAP "
+    - "Mainframe"
+    - "COBOL"
+    - "Data Scientist"
+    - "DevOps Engineer"
+  # Do NOT put Junior here — early-career roles are in scope.
+
+# Companies to crawl directly. Add branded careers_url when you have a target list.
+# Leave enabled: false until the URL is confirmed.
+tracked_companies: []
+
+search_queries:
+  - name: WUZZUF — Backend .NET Egypt
+    query: 'site:wuzzuf.net (".NET" OR "ASP.NET" OR "C#") (Backend OR "Web API") (Cairo OR Egypt OR Remote)'
+    enabled: true
+
+  - name: WUZZUF — Full Stack .NET React
+    query: 'site:wuzzuf.net ("Full Stack" OR Fullstack) (.NET OR "ASP.NET") (React) (Cairo OR Egypt)'
+    enabled: true
+
+  - name: WUZZUF — Frontend React
+    query: 'site:wuzzuf.net (Frontend OR "Front End" OR "React Developer") (React OR Next.js) (Cairo OR Egypt)'
+    enabled: true
+
+  - name: WUZZUF — Desktop WPF
+    query: 'site:wuzzuf.net (WPF OR WinForms OR "Windows Forms" OR "Desktop Developer") (C# OR .NET) (Egypt OR Cairo)'
+    enabled: true
+
+  - name: WUZZUF — Software Engineer .NET
+    query: 'site:wuzzuf.net ("Software Engineer" OR "Software Developer") (.NET OR "ASP.NET" OR C#) (Cairo OR Egypt)'
+    enabled: true
+
+  - name: LinkedIn public — Backend Egypt
+    query: 'site:linkedin.com/jobs (ASP.NET OR ".NET Developer" OR "Backend Engineer") (Egypt OR Cairo) -intern'
+    enabled: true
+
+  - name: LinkedIn public — Full Stack Egypt
+    query: 'site:linkedin.com/jobs ("Full Stack" OR Fullstack) (.NET OR React) (Egypt OR Cairo)'
+    enabled: true
+
+  - name: LinkedIn public — Frontend Egypt
+    query: 'site:linkedin.com/jobs ("Frontend Developer" OR "React Developer") (Egypt OR Cairo OR Remote)'
+    enabled: true
+
+  - name: LinkedIn public — WPF
+    query: 'site:linkedin.com/jobs (WPF OR WinForms OR "Desktop Developer") (C# OR .NET) (Egypt OR Cairo)'
+    enabled: true
+
+  - name: Indeed Egypt — .NET
+    query: 'site:eg.indeed.com (ASP.NET OR ".NET Developer" OR "C# Developer") (Cairo OR Egypt)'
+    enabled: true
+
+  - name: Indeed Egypt — React
+    query: 'site:eg.indeed.com ("React Developer" OR "Frontend Developer") (Cairo OR Egypt)'
+    enabled: true
+
+  - name: Greenhouse — ASP.NET remote
+    query: 'site:boards.greenhouse.io ("ASP.NET" OR ".NET Engineer" OR "C# Engineer") (Remote OR EMEA)'
+    enabled: true
+
+  - name: Lever — .NET / React
+    query: 'site:jobs.lever.co (".NET" OR "ASP.NET" OR "Full Stack") (Remote)'
+    enabled: true
+
+  - name: Ashby — Full stack remote
+    query: 'site:jobs.ashbyhq.com ("Full Stack" OR "Software Engineer") (.NET OR React) Remote'
+    enabled: false

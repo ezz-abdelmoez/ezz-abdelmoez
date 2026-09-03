@@ -1,0 +1,81 @@
+# Career-Ops profile — Ezz Abdelmoez
+# Copy to: career-ops/config/profile.yml  (inside a cloned career-ops repo)
+
+candidate:
+  full_name: "Ezz Abdelmoez Ahmed Mohamed"
+  email: "ezzabdelmoez@gmail.com"
+  phone: "+201014080630"
+  location: "Luxor, Egypt"
+  linkedin: "linkedin.com/in/ezz-abdelmoez"
+  portfolio_url: "https://v0-ezz-abdelmoez.vercel.app/"
+  github: "github.com/ezz-abdelmoez"
+  twitter: ""
+  photo: ""
+  photo_style: rounded
+
+target_roles:
+  primary:
+    - "Backend Engineer (ASP.NET Core)"
+    - "Full Stack Developer (.NET & React)"
+    - "Software Engineer"
+  archetypes:
+    - name: "Backend Engineer"
+      level: "Junior / Mid"
+      fit: "primary"
+    - name: "Full Stack Developer"
+      level: "Junior / Mid"
+      fit: "primary"
+    - name: "Software Engineer"
+      level: "Junior / Mid"
+      fit: "primary"
+    - name: "Frontend Engineer"
+      level: "Junior / Mid"
+      fit: "secondary"
+    - name: "Desktop Engineer"
+      level: "Junior / Mid"
+      fit: "secondary"
+
+narrative:
+  headline: "Full Stack .NET & React engineer — APIs, data, and interfaces that hold up in production"
+  exit_story: "Computer Science graduate (Luxor University) and ITI .NET full-stack track graduate. Shipping booking platforms and operations systems end to end — SQL Server models, ASP.NET Core APIs, React UIs, and a WPF shop client with RTL Arabic."
+  superpowers:
+    - "ASP.NET Core Web APIs with JWT and role-based access"
+    - "SQL Server + Entity Framework Core modelling for bookings, records, money"
+    - "React interfaces on top of real APIs, not landing-page demos"
+    - "Windows desktop (WPF / WinForms / MVVM) when the product lives on a desk"
+  proof_points:
+    - name: "Hospital Management System"
+      url: "https://hms-me.vercel.app/"
+      hero_metric: "JWT-secured ASP.NET Core API + React SPA for records, appointments, RBAC"
+    - name: "Farhetak"
+      url: "https://farhetak.vercel.app/"
+      hero_metric: "Venue booking API with availability conflict handling"
+    - name: "Luxor Booking Tours"
+      url: "https://v0-ezz-abdelmoez.vercel.app/"
+      hero_metric: "Production tour booking APIs and React UI, Oct 2025 — Jun 2026"
+    - name: "Mobile Store Management System"
+      url: "https://v0-ezz-abdelmoez.vercel.app/desktop-engineer"
+      hero_metric: "WPF + MVVM + SQL Server retail client, fully RTL Arabic"
+
+compensation:
+  # Fill with your real walk-away number before using Block C in evaluations.
+  target_range: ""
+  currency: "EGP"
+  minimum: ""
+  location_flexibility: "Remote and on-site in Egypt (Cairo / Luxor). Open to relocation inside Egypt. Immediate availability."
+
+location:
+  country: "Egypt"
+  city: "Luxor"
+  timezone: "GMT+2"
+  visa_status: "Egyptian citizen — no sponsorship needed for Egypt. Needs sponsorship outside Egypt."
+  authorized_in: ["Egypt"]
+  needs_sponsorship: true
+
+language:
+  output: en
+
+spend_tier: standard
+
+cv:
+  output_format: "html"
