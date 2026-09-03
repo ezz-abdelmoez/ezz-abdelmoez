@@ -158,18 +158,28 @@ Portfolio: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
 ### English
 **Subject:** Application for Backend Developer (.NET) — Ezz Abdelmoez
 
-Dear [Hiring Manager's Name / Hiring Team],
+Dear Hiring Team,
 
-I'm applying for the Backend Developer position at [Company Name]. I focus on building scalable, secure backend systems and APIs using .NET, with strong experience in database design, system architecture, and performance optimization.
+I’m writing to apply for the Backend Developer (.NET) position.
+
+I specialize in building reliable and scalable backend applications using C#, .NET, ASP.NET Core, Entity Framework Core, RESTful APIs, and SQL Server, with hands-on experience in database design, business logic, API development, and application architecture.
+
+In addition to my backend experience, I have strong hands-on experience with React.js, which gives me a solid understanding of frontend development and allows me to collaborate effectively with frontend teams and build well-integrated full-stack solutions when needed.
 
 Portfolio: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
 My CV and cover letter are attached with more details on my backend projects and experience.
 
-I'd be glad to discuss how I can support [Company Name]'s backend team. Thank you for your consideration.
+I have attached my Backend Developer CV and Cover Letter for more details about my experience, projects, and technical skills.
+
+I would be glad to discuss how my .NET backend experience, along with my strong React.js background, could contribute to your team.
+
+Thank you for your time and consideration.
 
 Best regards,
 Ezz Abdelmoez
-+201014080630 | ezzabdelmoez@gmail.com | linkedin.com/in/ezz-abdelmoez
++20 101 408 0630
+ezzabdelmoez@gmail.com
+linkedin.com/in/ezz-abdelmoez
 
 ### عربي
 **الموضوع:** التقديم على وظيفة Backend Developer (.NET) — عز عبدالمعز
@@ -178,7 +188,7 @@ Ezz Abdelmoez
 
 بتقدملكم على وظيفة Backend Developer. بركز على بناء أنظمة backend وAPIs قابلة للتوسع وآمنة باستخدام .NET، وعندي خبرة قوية في تصميم قواعد البيانات، ومعمارية الأنظمة، وتحسين الأداء.
 
-الأعمال بتاعتي: [هتتضاف لما البورتفوليو يخلص]
+الأعمال بتاعتي: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
 مرفق السيرة الذاتية وخطاب التقديم فيهم تفاصيل أكتر عن مشاريعي وخبرتي في الباك إند.
 
 يسعدني إني أتناقش معاكم عن إزاي أقدر أدعم فريق الباك إند عندكم. شكرًا لاهتمامكم.

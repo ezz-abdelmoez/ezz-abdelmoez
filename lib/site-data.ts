@@ -390,7 +390,7 @@ export const site: SiteContent = {
       href: "/full-stack/Ezz-Abdelmoez-Full-Stack-CV.pdf",
       filename: "Ezz-Abdelmoez-Full-Stack-CV.pdf",
       kind: "cv",
-      available: false,
+      available: true,
     },
     {
       id: "fs-cover",
@@ -400,7 +400,7 @@ export const site: SiteContent = {
       href: "/full-stack/Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf",
       filename: "Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: false,
+      available: true,
     },
   ],
   copy: {
