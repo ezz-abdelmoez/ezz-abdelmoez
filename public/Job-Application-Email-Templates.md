@@ -153,7 +153,7 @@ Ezz Abdelmoez
 ---
 
 ## 5. Backend Developer (.NET)
-Portfolio: [رابط البورتفوليو لما يخلص]
+Portfolio: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
 
 ### English
 **Subject:** Application for Backend Developer (.NET) — Ezz Abdelmoez
@@ -166,8 +166,8 @@ I specialize in building reliable and scalable backend applications using C#, .N
 
 In addition to my backend experience, I have strong hands-on experience with React.js, which gives me a solid understanding of frontend development and allows me to collaborate effectively with frontend teams and build well-integrated full-stack solutions when needed.
 
-You can view my backend-focused portfolio here:
-https://v0-ezz-abdelmoez.vercel.app/backend-engineer
+Portfolio: https://v0-ezz-abdelmoez.vercel.app/backend-engineer
+My CV and cover letter are attached with more details on my backend projects and experience.
 
 I have attached my Backend Developer CV and Cover Letter for more details about my experience, projects, and technical skills.
 
