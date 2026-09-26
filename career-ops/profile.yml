@@ -44,6 +44,9 @@ narrative:
     - "React interfaces on top of real APIs, not landing-page demos"
     - "Windows desktop (WPF / WinForms / MVVM) when the product lives on a desk"
   proof_points:
+    - name: "Nasaq"
+      url: "https://nasaq-flame.vercel.app/"
+      hero_metric: "Arabic-first theme catalogue with previews (demo, not a live store)"
     - name: "Plory"
       url: "https://plory.vercel.app/"
       hero_metric: "Arabic-first engineering site with services, archive and quote flow"

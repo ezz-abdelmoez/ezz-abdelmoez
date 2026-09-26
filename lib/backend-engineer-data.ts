@@ -151,6 +151,7 @@ export const backendEngineerSite: SiteContent = {
   ],
   projects: [
     {
+      slug: "hospital-management-system",
       title: "Hospital Management System",
       subtitle: "Healthcare operations API",
       year: "2026",
@@ -175,6 +176,7 @@ export const backendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "farhetak",
       title: "Farhetak",
       subtitle: "Wedding hall booking API",
       year: "2026",
@@ -199,6 +201,7 @@ export const backendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "luxor-booking-tours",
       title: "Luxor Booking Tours",
       subtitle: "Tourism booking APIs",
       year: "2025 — 2026",
@@ -213,6 +216,7 @@ export const backendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "restaurant-management-system",
       title: "Restaurant Management System",
       subtitle: "Web API & data layer",
       year: "2025",
@@ -222,6 +226,7 @@ export const backendEngineerSite: SiteContent = {
       tech: ["ASP.NET Core", "Entity Framework", "SQL Server", "RBAC"],
     },
     {
+      slug: "mobile-store-management",
       title: "Mobile Store Management System",
       subtitle: "SQL Server data layer",
       year: "2025",

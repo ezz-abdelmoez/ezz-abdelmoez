@@ -52,6 +52,7 @@ Oct 2023 · Luxor Governorate, Egypt
 
 ## Selected work
 
+- **Nasaq** (2026) — Arabic theme catalogue (demo): categories, previews, comparison cart. https://nasaq-flame.vercel.app/
 - **Plory** (2026) — Arabic-first engineering-services site: services, project archive, quote form. https://plory.vercel.app/
 - **Velrix** (2026) — Bilingual Arabic/English agency site, RTL-first, JSON content model. https://velix-green.vercel.app/
 - **Hospital Management System** (2026) — JWT-secured ASP.NET Core Web API + React SPA; EMR, appointments, RBAC. https://hms-me.vercel.app/

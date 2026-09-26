@@ -25,7 +25,15 @@ export type SkillGroup = {
   skills: string[];
 };
 
+export type ProjectCaseStudy = {
+  role?: string;
+  problem?: string;
+  approach?: string[];
+  outcome?: string;
+};
+
 export type Project = {
+  slug: string;
   title: string;
   subtitle: string;
   year: string;
@@ -36,6 +44,7 @@ export type Project = {
   demo?: string;
   repo?: string;
   featured?: boolean;
+  caseStudy?: ProjectCaseStudy;
 };
 
 export type TimelineItem = {

@@ -170,6 +170,7 @@ export const site: SiteContent = {
   ],
   projects: [
     {
+      slug: "hospital-management-system",
       title: "Hospital Management System",
       subtitle: "Healthcare operations platform",
       year: "2026",
@@ -195,6 +196,7 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      slug: "farhetak",
       title: "Farhetak",
       subtitle: "Wedding hall booking platform",
       year: "2026",
@@ -220,6 +222,7 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      slug: "velrix",
       title: "Velrix",
       subtitle: "Bilingual agency website",
       year: "2026",
@@ -235,6 +238,7 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      slug: "plory",
       title: "Plory",
       subtitle: "Engineering services website",
       year: "2026",
@@ -251,6 +255,37 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      slug: "nasaq",
+      title: "Nasaq",
+      subtitle: "نَسَق — Arabic theme catalogue",
+      year: "2026",
+      description:
+        "An Arabic-first catalogue for exploring e-commerce theme ideas: browse by category, open a design preview, compare options. The live build is a UI demo with experimental data — not a store that sells or activates themes, and not affiliated with Salla.",
+      highlights: [
+        "RTL storefront with Arabic copy from structured JSON",
+        "Theme catalogue, category browse, and per-theme interactive previews",
+        "Favorites and cart used as comparison tools in a demo checkout",
+        "About page that states independence from Salla and that nothing is purchased here",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://nasaq-flame.vercel.app/",
+      featured: true,
+      caseStudy: {
+        role: "Frontend / product UI",
+        problem:
+          "Arabic store owners often have to imagine a theme before they see it. Nasaq is an independent space to look at design ideas aimed at Salla-style stores — without pretending to be Salla, and without fake 'buy now' that actually charges anyone.",
+        approach: [
+          "Home, themes, categories, about and contact as a Next.js App Router site",
+          "Content (eyebrow, benefits, how-it-works, featured theme ids) lives in JSON, not in the components",
+          "Each theme has a detail page and an interactive store preview",
+          "Demo notices on about and home so a visitor is never sold a download that does not exist",
+        ],
+        outcome:
+          "Public demo at nasaq-flame.vercel.app — useful as a UI case study, not as a production marketplace.",
+      },
+    },
+    {
+      slug: "luxor-booking-tours",
       title: "Luxor Booking Tours",
       subtitle: "Tourism booking platform",
       year: "2025 — 2026",
@@ -265,6 +300,7 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      slug: "mobile-store-management",
       title: "Mobile Store Management System",
       subtitle: "Retail desktop application",
       year: "2025",
@@ -274,6 +310,7 @@ export const site: SiteContent = {
       tech: ["C#", "WPF", "MVVM", "Entity Framework", "SQL Server"],
     },
     {
+      slug: "restaurant-management-system",
       title: "Restaurant Management System",
       subtitle: "Web application",
       year: "2025",

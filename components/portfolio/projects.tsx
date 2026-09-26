@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight, Check, Github, Layers } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import type { Project } from "@/lib/site-types";
@@ -136,8 +137,15 @@ function ProjectDetail({ project, index }: { project: Project; index: number }) 
         ))}
       </ul>
 
-      {(project.demo || project.repo) && (
+      {(project.demo || project.repo || project.slug) && (
         <div className="mt-8 flex flex-wrap items-center gap-3">
+          <Link
+            href={`/work/${project.slug}`}
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/15 px-5 text-sm text-white/80 transition-colors hover:border-white/35 hover:text-white"
+          >
+            Case study
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
           {project.demo && (
             <a
               href={project.demo}

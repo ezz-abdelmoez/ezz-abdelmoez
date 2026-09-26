@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
 import { TrackLinks, TrackMenu } from "@/components/portfolio/track-links";
 import { useSiteContent } from "@/lib/site-content";
@@ -8,7 +9,11 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const { navLinks, profile, contactLinks, documents, copy } = useSiteContent();
-  const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+  const pathname = usePathname();
+  const onWorkPage = pathname.startsWith("/work");
+  const sectionIds = navLinks.map((l) => l.href.replace("#", "").replace(/^\//, ""));
+  const hrefFor = (href: string) =>
+    onWorkPage && href.startsWith("#") ? `/${href}` : href;
   const cv = documents.find((d) => d.kind === "cv" && d.available);
   const resumeHref = cv?.href ?? profile.resume;
   const resumeReady = documents.length === 0 || Boolean(cv);
@@ -112,7 +117,7 @@ export function SiteHeader() {
           >
             {/* Wordmark */}
             <a
-              href="#top"
+              href={onWorkPage ? "/" : "#top"}
               className="group flex items-baseline gap-2 shrink-0"
               aria-label={`${profile.name} — back to top`}
             >
@@ -134,12 +139,12 @@ export function SiteHeader() {
                 />
               )}
               {navLinks.map((link) => {
-                const id = link.href.replace("#", "");
-                const isActive = active === id;
+                const id = link.href.replace("#", "").replace(/^\//, "");
+                const isActive = !onWorkPage && active === id;
                 return (
                   <a
                     key={link.name}
-                    href={link.href}
+                    href={hrefFor(link.href)}
                     ref={(el) => {
                       linkRefs.current[id] = el;
                     }}
@@ -214,7 +219,7 @@ export function SiteHeader() {
             {navLinks.map((link, i) => (
               <li key={link.name}>
                 <a
-                  href={link.href}
+                  href={hrefFor(link.href)}
                   onClick={() => setMenuOpen(false)}
                   className={cn(
                     "flex items-baseline gap-4 border-b border-white/[0.07] py-4 font-display text-4xl text-white transition-all duration-500",
