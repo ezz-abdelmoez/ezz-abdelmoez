@@ -234,6 +234,7 @@ export const site: SiteContent = {
         "Contact paths for consultation and WhatsApp, shipped on Vercel",
       ],
       tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      image: "/projects/velrix.png",
       demo: "https://velix-green.vercel.app/",
       featured: true,
     },
@@ -251,6 +252,7 @@ export const site: SiteContent = {
         "Content modelled as JSON rather than hardcoded marketing copy",
       ],
       tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      image: "/projects/plory.png",
       demo: "https://plory.vercel.app/",
       featured: true,
     },
@@ -268,6 +270,7 @@ export const site: SiteContent = {
         "About page that states independence from Salla and that nothing is purchased here",
       ],
       tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      image: "/projects/nosoq.png",
       demo: "https://nasaq-flame.vercel.app/",
       featured: true,
       caseStudy: {
@@ -297,6 +300,7 @@ export const site: SiteContent = {
         "Ongoing maintenance, performance work and feature delivery",
       ],
       tech: ["ASP.NET Core", "C#", "React", "SQL Server", "Entity Framework Core", "REST API"],
+      image: "/projects/luxorbookingtours.png",
       featured: true,
     },
     {
@@ -308,6 +312,7 @@ export const site: SiteContent = {
         "A Windows desktop app for a phone retail shop: inventory, sales, repairs, warranties and financial reporting, with a fully right-to-left Arabic interface.",
       highlights: [],
       tech: ["C#", "WPF", "MVVM", "Entity Framework", "SQL Server"],
+      image: "/projects/ms-store.png",
     },
     {
       slug: "restaurant-management-system",
@@ -318,6 +323,7 @@ export const site: SiteContent = {
         "Menu, order, reservation and staff management for a restaurant, with role-based access separating floor staff, kitchen and management.",
       highlights: [],
       tech: ["ASP.NET Core", "Entity Framework", "Bootstrap", "SQL Server"],
+      image: "/projects/res-mg.png",
     },
   ],
   timeline: [
