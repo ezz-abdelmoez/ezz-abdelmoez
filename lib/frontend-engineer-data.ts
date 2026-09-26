@@ -61,7 +61,7 @@ export const frontendEngineerSite: SiteContent = {
     ],
   },
   heroStats: [
-    { value: "4", label: "production React UIs\nin the wild" },
+    { value: "5", label: "production React UIs\nin the wild" },
     { value: "1+", label: "year shipping\ninterfaces" },
     { value: "B.Sc.", label: "Computer Science\nLuxor University" },
     { value: "ITI", label: "React & Next.js\non the .NET track" },
@@ -169,6 +169,22 @@ export const frontendEngineerSite: SiteContent = {
       ],
       tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
       demo: "https://velix-green.vercel.app/",
+      featured: true,
+    },
+    {
+      title: "Plory",
+      subtitle: "Engineering services website",
+      year: "2026",
+      description:
+        "A corporate marketing site for an engineering contractor: Arabic-first RTL, English on a language switch, services and a filterable project archive — all assembled from JSON, plus a quote-request dialog.",
+      highlights: [
+        "RTL homepage with video hero, client strip and stats",
+        "Services explorer and a project gallery with sector filters",
+        "Quote-request dialog: fields, consent, success state and reference id",
+        "AR / EN content trees instead of copy locked in components",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://plory.vercel.app/",
       featured: true,
     },
     {

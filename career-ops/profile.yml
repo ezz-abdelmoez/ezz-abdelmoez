@@ -44,6 +44,9 @@ narrative:
     - "React interfaces on top of real APIs, not landing-page demos"
     - "Windows desktop (WPF / WinForms / MVVM) when the product lives on a desk"
   proof_points:
+    - name: "Plory"
+      url: "https://plory.vercel.app/"
+      hero_metric: "Arabic-first engineering site with services, archive and quote flow"
     - name: "Velrix"
       url: "https://velix-green.vercel.app/"
       hero_metric: "Arabic-first bilingual agency site with a JSON content model"

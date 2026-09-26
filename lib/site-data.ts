@@ -235,6 +235,22 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      title: "Plory",
+      subtitle: "Engineering services website",
+      year: "2026",
+      description:
+        "A corporate site for Plory (بلوري) — Arabic-first RTL, English via a language switch, and the page copy driven by structured JSON: hero, about, services, project archive and a quote-request flow.",
+      highlights: [
+        "Arabic / English switch with an RTL-first layout and video hero",
+        "Multi-page IA: about, services, filtered project archive, contact",
+        "Quote-request dialog with validation, consent and a reference number",
+        "Content modelled as JSON rather than hardcoded marketing copy",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://plory.vercel.app/",
+      featured: true,
+    },
+    {
       title: "Luxor Booking Tours",
       subtitle: "Tourism booking platform",
       year: "2025 — 2026",
