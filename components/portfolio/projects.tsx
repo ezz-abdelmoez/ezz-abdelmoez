@@ -1,163 +1,183 @@
 "use client";
 
-import { ArrowUpRight, Check, Code2, Github, Layers } from "lucide-react";
+import { useEffect, useId, useState } from "react";
+import { ArrowUpRight, Check, Github, Layers } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import type { Project } from "@/lib/site-types";
 import { Chip, GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
 
-function ProjectVisual({ project, index }: { project: Project; index: number }) {
-  if (project.image) {
-    return (
-      <div className="surface group/visual relative overflow-hidden rounded-2xl p-2">
-        {/* browser chrome */}
-        <div className="flex items-center gap-1.5 px-3 py-2">
-          <span className="h-2 w-2 rounded-full bg-white/15" />
-          <span className="h-2 w-2 rounded-full bg-white/15" />
-          <span className="h-2 w-2 rounded-full bg-white/15" />
-          {project.demo && (
-            <span className="ml-3 truncate font-mono text-[10px] text-white/30">
-              {project.demo.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-            </span>
-          )}
-        </div>
-        <div className="relative overflow-hidden rounded-xl border border-white/[0.07]">
-          <img
-            src={project.image}
-            alt={`${project.title} interface`}
-            loading="lazy"
-            className="aspect-[16/10] w-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover/visual:scale-[1.04]"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-        </div>
-      </div>
-    );
-  }
+function hostOf(url?: string) {
+  if (!url) return "";
+  return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+}
 
-  // Fallback visual for projects without a screenshot
+function GalleryTile({
+  project,
+  index,
+  selected,
+  wide,
+  onSelect,
+}: {
+  project: Project;
+  index: number;
+  selected: boolean;
+  wide?: boolean;
+  onSelect: () => void;
+}) {
   return (
-    <div className="surface relative overflow-hidden rounded-2xl">
-      <div className="bg-dots absolute inset-0 opacity-60" aria-hidden="true" />
-      <GlowOrb
-        className="-right-20 -top-20 h-64 w-64"
-        color={index % 2 === 0 ? "gold" : "violet"}
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-pressed={selected}
+      aria-label={`${project.title} — ${project.year}`}
+      className={cn(
+        "group/tile relative overflow-hidden rounded-2xl border text-left outline-none transition-all duration-400",
+        wide ? "col-span-2 aspect-[16/8] min-h-[180px]" : "aspect-[4/3]",
+        selected
+          ? "border-gold/45 ring-1 ring-gold/30 shadow-[0_18px_50px_-24px_rgb(var(--gold)/0.55)]"
+          : "border-white/[0.08] hover:-translate-y-0.5 hover:border-gold/25",
+      )}
+    >
+      {project.image ? (
+        <img
+          src={project.image}
+          alt=""
+          loading="lazy"
+          className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover/tile:scale-[1.06]"
+        />
+      ) : (
+        <div className="relative h-full w-full bg-background">
+          <div className="bg-dots absolute inset-0 opacity-70" aria-hidden="true" />
+          <GlowOrb
+            className="-right-16 -top-16 h-48 w-48"
+            color={index % 2 === 0 ? "gold" : "violet"}
+          />
+          <Layers
+            className="absolute left-4 top-4 h-5 w-5 text-gold/50"
+            strokeWidth={1.4}
+            aria-hidden="true"
+          />
+        </div>
+      )}
+
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent"
+        aria-hidden="true"
       />
-      <div className="relative flex aspect-[16/10] flex-col justify-between p-7">
-        <Layers className="h-6 w-6 text-gold/70" strokeWidth={1.4} aria-hidden="true" />
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">
-            {project.subtitle}
-          </p>
-          <p className="mt-2 font-display text-3xl leading-tight text-white/90">
-            {project.title}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {project.tech.slice(0, 4).map((t) => (
-            <span
-              key={t}
-              className="rounded-full border border-white/10 bg-background/60 px-2.5 py-1 font-mono text-[10px] text-white/50"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
+
+      {project.demo && (
+        <span className="absolute right-3 top-3 rounded-full border border-white/12 bg-background/70 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 backdrop-blur-md">
+          Live
+        </span>
+      )}
+
+      <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4">
+        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/75">
+          {project.subtitle}
+        </p>
+        <p
+          className={cn(
+            "mt-1 font-display leading-tight text-white",
+            wide ? "text-2xl sm:text-3xl" : "text-base sm:text-lg",
+          )}
+        >
+          {project.title}
+        </p>
       </div>
-    </div>
+    </button>
   );
 }
 
-function FeaturedProject({ project, index }: { project: Project; index: number }) {
-  const flipped = index % 2 === 1;
-
+function ProjectDetail({ project, index }: { project: Project; index: number }) {
   return (
-    <Reveal as="article" className="group">
-      <div
-        className={cn(
-          "grid items-center gap-8 lg:grid-cols-2 lg:gap-14",
-          flipped && "lg:[&>*:first-child]:order-2",
-        )}
-      >
-        <ProjectVisual project={project} index={index} />
+    <article
+      id="project-detail"
+      className="surface relative overflow-hidden rounded-3xl p-6 md:p-8"
+    >
+      <div className="mb-5 flex flex-wrap items-center gap-3">
+        <span className="font-mono text-[11px] tracking-[0.2em] text-gold/70">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="h-px w-5 bg-white/15" aria-hidden="true" />
+        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
+          {project.subtitle}
+        </span>
+        <span className="ml-auto font-mono text-[11px] text-white/30">{project.year}</span>
+      </div>
 
-        <div>
-          <div className="mb-4 flex items-center gap-3">
-            <span className="font-mono text-[11px] tracking-[0.2em] text-gold/70">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <span className="h-px w-5 bg-white/15" aria-hidden="true" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
-              {project.subtitle}
-            </span>
-            <span className="ml-auto font-mono text-[11px] text-white/30">{project.year}</span>
-          </div>
+      <h3 className="font-display text-3xl leading-tight text-white md:text-[2.35rem]">
+        {project.title}
+      </h3>
 
-          <h3 className="font-display text-3xl leading-tight text-white md:text-4xl">
-            {project.title}
-          </h3>
+      <p className="mt-4 text-base leading-relaxed text-white/55">{project.description}</p>
 
-          <p className="mt-4 text-base leading-relaxed text-white/55">{project.description}</p>
+      {project.highlights.length > 0 && (
+        <ul className="mt-6 space-y-2.5">
+          {project.highlights.map((point) => (
+            <li key={point} className="flex gap-3 text-sm leading-relaxed text-white/65">
+              <Check
+                className="mt-0.5 h-4 w-4 shrink-0 text-gold/70"
+                strokeWidth={2}
+                aria-hidden="true"
+              />
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
 
-          {project.highlights.length > 0 && (
-            <ul className="mt-6 space-y-2.5">
-              {project.highlights.map((point) => (
-                <li key={point} className="flex gap-3 text-sm leading-relaxed text-white/65">
-                  <Check
-                    className="mt-0.5 h-4 w-4 shrink-0 text-gold/70"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
-                  {point}
-                </li>
-              ))}
-            </ul>
+      <ul className="mt-7 flex flex-wrap gap-2">
+        {project.tech.map((t) => (
+          <li key={t}>
+            <Chip>{t}</Chip>
+          </li>
+        ))}
+      </ul>
+
+      {(project.demo || project.repo) && (
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/cta inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_14px_36px_-16px_rgb(var(--gold))]"
+            >
+              {hostOf(project.demo) || "Live demo"}
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
+            </a>
           )}
-
-          <ul className="mt-7 flex flex-wrap gap-2">
-            {project.tech.map((t) => (
-              <li key={t}>
-                <Chip>{t}</Chip>
-              </li>
-            ))}
-          </ul>
-
-          {(project.demo || project.repo) && (
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/cta inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_14px_36px_-16px_rgb(var(--gold))]"
-                >
-                  Live demo
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
-                </a>
-              )}
-              {project.repo && (
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-white/15 px-5 text-sm text-white/75 transition-colors hover:border-white/35 hover:text-white"
-                >
-                  <Github className="h-4 w-4" />
-                  Source
-                </a>
-              )}
-            </div>
+          {project.repo && (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/15 px-5 text-sm text-white/75 transition-colors hover:border-white/35 hover:text-white"
+            >
+              <Github className="h-4 w-4" />
+              Source
+            </a>
           )}
         </div>
-      </div>
-    </Reveal>
+      )}
+    </article>
   );
 }
 
 export function Projects() {
   const { projects, copy } = useSiteContent();
-  const featured = projects.filter((p) => p.featured);
-  const others = projects.filter((p) => !p.featured);
+  const [active, setActive] = useState(0);
+  const headingId = useId();
+  const catalogKey = projects.map((p) => p.title).join("|");
+
+  useEffect(() => {
+    setActive(0);
+  }, [catalogKey]);
+
+  const index = projects.length === 0 ? 0 : Math.min(active, projects.length - 1);
+  const selected = projects[index];
 
   return (
     <Section
@@ -176,46 +196,29 @@ export function Projects() {
         lead={copy.work.lead}
       />
 
-      <div className="space-y-20 md:space-y-28">
-        {featured.map((project, i) => (
-          <FeaturedProject key={project.title} project={project} index={i} />
-        ))}
-      </div>
-
-      {others.length > 0 && (
-        <div className="mt-24">
-          <Reveal className="mb-8 flex items-center gap-3">
-            <Code2 className="h-4 w-4 text-gold/70" aria-hidden="true" />
-            <h3 className="font-display text-2xl text-white">Also built</h3>
+      {selected && (
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-10">
+          <Reveal>
+            <div role="group" aria-labelledby={headingId} className="grid grid-cols-2 gap-3">
+              <p id={headingId} className="sr-only">
+                Project gallery — select a work to read the details
+              </p>
+              {projects.map((project, i) => (
+                <GalleryTile
+                  key={project.title}
+                  project={project}
+                  index={i}
+                  selected={i === index}
+                  wide={i === 0}
+                  onSelect={() => setActive(i)}
+                />
+              ))}
+            </div>
           </Reveal>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {others.map((project, i) => (
-              <Reveal key={project.title} delay={i * 80}>
-                <article className="surface surface-hover h-full rounded-2xl p-6">
-                  <div className="mb-3 flex items-baseline justify-between gap-4">
-                    <h4 className="font-display text-xl text-white">{project.title}</h4>
-                    <span className="shrink-0 font-mono text-[11px] text-white/30">
-                      {project.year}
-                    </span>
-                  </div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/60">
-                    {project.subtitle}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/55">
-                    {project.description}
-                  </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {project.tech.map((t) => (
-                      <li key={t}>
-                        <Chip>{t}</Chip>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={80} className="lg:sticky lg:top-28">
+            <ProjectDetail project={selected} index={index} />
+          </Reveal>
         </div>
       )}
     </Section>
