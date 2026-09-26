@@ -52,6 +52,7 @@ Oct 2023 · Luxor Governorate, Egypt
 
 ## Selected work
 
+- **Velrix** (2026) — Bilingual Arabic/English agency site, RTL-first, JSON content model. https://velix-green.vercel.app/
 - **Hospital Management System** (2026) — JWT-secured ASP.NET Core Web API + React SPA; EMR, appointments, RBAC. https://hms-me.vercel.app/
 - **Farhetak** (2026) — Wedding-hall booking: availability conflicts, reservations, React + ASP.NET Core. https://farhetak.vercel.app/
 - **Luxor Booking Tours** (2025–2026) — Production tour booking APIs and React UI

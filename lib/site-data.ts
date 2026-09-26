@@ -220,6 +220,21 @@ export const site: SiteContent = {
       featured: true,
     },
     {
+      title: "Velrix",
+      subtitle: "Bilingual agency website",
+      year: "2026",
+      description:
+        "A marketing site for Velrix, built Arabic-first: RTL homepage, English content alongside it, and the page assembled from a structured JSON content model rather than hardcoded copy.",
+      highlights: [
+        "Arabic / English content trees for the same home page (hero, solutions, social proof, FAQ, CTA)",
+        "RTL-first layout with a video hero, solutions grid and FAQ accordion",
+        "Contact paths for consultation and WhatsApp, shipped on Vercel",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://velix-green.vercel.app/",
+      featured: true,
+    },
+    {
       title: "Luxor Booking Tours",
       subtitle: "Tourism booking platform",
       year: "2025 — 2026",
@@ -390,7 +405,7 @@ export const site: SiteContent = {
       href: "/full-stack/Ezz-Abdelmoez-Full-Stack-CV.pdf",
       filename: "Ezz-Abdelmoez-Full-Stack-CV.pdf",
       kind: "cv",
-      available: true,
+      available: false,
     },
     {
       id: "fs-cover",
@@ -400,7 +415,7 @@ export const site: SiteContent = {
       href: "/full-stack/Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf",
       filename: "Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: true,
+      available: false,
     },
   ],
   copy: {
