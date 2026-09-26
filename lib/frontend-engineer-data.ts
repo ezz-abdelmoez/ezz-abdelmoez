@@ -61,7 +61,7 @@ export const frontendEngineerSite: SiteContent = {
     ],
   },
   heroStats: [
-    { value: "3", label: "production React UIs\nin the wild" },
+    { value: "4", label: "production React UIs\nin the wild" },
     { value: "1+", label: "year shipping\ninterfaces" },
     { value: "B.Sc.", label: "Computer Science\nLuxor University" },
     { value: "ITI", label: "React & Next.js\non the .NET track" },
@@ -155,6 +155,22 @@ export const frontendEngineerSite: SiteContent = {
     },
   ],
   projects: [
+    {
+      title: "Velrix",
+      subtitle: "Bilingual agency website",
+      year: "2026",
+      description:
+        "An Arabic-first marketing site: RTL homepage, a parallel English content tree, and sections driven by JSON — hero, solutions, social proof, FAQ — instead of copy locked inside components.",
+      highlights: [
+        "RTL-first layout with a video hero and solutions grid",
+        "Home page content modelled as structured JSON per language",
+        "FAQ accordion, social-proof block and consultation / WhatsApp CTAs",
+        "Shipped on Vercel as a public marketing surface",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://velix-green.vercel.app/",
+      featured: true,
+    },
     {
       title: "Farhetak",
       subtitle: "Wedding hall booking UI",
@@ -290,7 +306,7 @@ export const frontendEngineerSite: SiteContent = {
       href: cvHref,
       filename: "Ezz-Abdelmoez-Frontend-Engineer-CV.pdf",
       kind: "cv",
-      available: true,
+      available: false,
     },
     {
       id: "fe-cover",
@@ -300,7 +316,7 @@ export const frontendEngineerSite: SiteContent = {
       href: coverHref,
       filename: "Ezz-Abdelmoez-Frontend-Engineer-Cover-Letter.pdf",
       kind: "cover-letter",
-      available: true,
+      available: false,
     },
   ],
   copy: {
