@@ -153,6 +153,7 @@ export const desktopEngineerSite: SiteContent = {
   ],
   projects: [
     {
+      slug: "mobile-store-management",
       title: "Mobile Store Management System",
       subtitle: "Windows retail application",
       year: "2025",

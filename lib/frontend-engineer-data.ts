@@ -61,7 +61,7 @@ export const frontendEngineerSite: SiteContent = {
     ],
   },
   heroStats: [
-    { value: "4", label: "production React UIs\nin the wild" },
+    { value: "6", label: "production React UIs\nin the wild" },
     { value: "1+", label: "year shipping\ninterfaces" },
     { value: "B.Sc.", label: "Computer Science\nLuxor University" },
     { value: "ITI", label: "React & Next.js\non the .NET track" },
@@ -156,6 +156,7 @@ export const frontendEngineerSite: SiteContent = {
   ],
   projects: [
     {
+      slug: "velrix",
       title: "Velrix",
       subtitle: "Bilingual agency website",
       year: "2026",
@@ -172,6 +173,41 @@ export const frontendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "plory",
+      title: "Plory",
+      subtitle: "Engineering services website",
+      year: "2026",
+      description:
+        "A corporate marketing site for an engineering contractor: Arabic-first RTL, English on a language switch, services and a filterable project archive — all assembled from JSON, plus a quote-request dialog.",
+      highlights: [
+        "RTL homepage with video hero, client strip and stats",
+        "Services explorer and a project gallery with sector filters",
+        "Quote-request dialog: fields, consent, success state and reference id",
+        "AR / EN content trees instead of copy locked in components",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://plory.vercel.app/",
+      featured: true,
+    },
+    {
+      slug: "nasaq",
+      title: "Nasaq",
+      subtitle: "نَسَق — Arabic theme catalogue",
+      year: "2026",
+      description:
+        "An Arabic-first catalogue for exploring e-commerce theme ideas: browse by category, open a design preview, compare options. Demo data only — nothing is sold or activated, and it is not a Salla product.",
+      highlights: [
+        "RTL storefront with Arabic copy from JSON",
+        "Theme catalogue, categories, and interactive store previews",
+        "Favorites and cart as comparison tools in a demo checkout",
+        "About page that states independence from Salla",
+      ],
+      tech: ["Next.js", "React", "RTL / Arabic UI", "JSON content model", "Vercel"],
+      demo: "https://nasaq-flame.vercel.app/",
+      featured: true,
+    },
+    {
+      slug: "farhetak",
       title: "Farhetak",
       subtitle: "Wedding hall booking UI",
       year: "2026",
@@ -189,6 +225,7 @@ export const frontendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "hospital-management-system",
       title: "Hospital Management System",
       subtitle: "Healthcare operations console",
       year: "2026",
@@ -206,6 +243,7 @@ export const frontendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "luxor-booking-tours",
       title: "Luxor Booking Tours",
       subtitle: "Tourism booking interface",
       year: "2025 — 2026",
@@ -220,6 +258,7 @@ export const frontendEngineerSite: SiteContent = {
       featured: true,
     },
     {
+      slug: "restaurant-management-system",
       title: "Restaurant Management System",
       subtitle: "Staff-facing web UI",
       year: "2025",
