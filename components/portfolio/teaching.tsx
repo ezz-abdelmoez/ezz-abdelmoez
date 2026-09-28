@@ -2,6 +2,7 @@
 
 import { BookOpen, GraduationCap, Sparkle } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
+import { ChessBackdrop } from "@/components/chess/chess-backdrop";
 import { Chip, GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 
@@ -15,6 +16,7 @@ export function Teaching() {
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
           <GlowOrb className="left-1/4 top-0 h-[420px] w-[420px]" color="gold" />
+          <ChessBackdrop motif="knight" />
         </div>
       }
     >

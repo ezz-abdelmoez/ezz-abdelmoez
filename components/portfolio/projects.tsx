@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Check, Github, Layers } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import type { Project } from "@/lib/site-types";
+import { ChessBackdrop } from "@/components/chess/chess-backdrop";
 import { Chip, GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
@@ -194,6 +195,7 @@ export function Projects() {
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
           <GlowOrb className="right-[-15%] top-1/4 h-[500px] w-[500px]" color="violet" />
+          <ChessBackdrop motif="grid" />
         </div>
       }
     >

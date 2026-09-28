@@ -15,6 +15,7 @@ import {
   Send,
 } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
+import { ChessBackdrop } from "@/components/chess/chess-backdrop";
 import { GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 
@@ -184,6 +185,7 @@ export function Contact() {
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
           <GlowOrb className="left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2" color="gold" />
+          <ChessBackdrop motif="empty" />
         </div>
       }
     >

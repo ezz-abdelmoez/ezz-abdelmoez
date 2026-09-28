@@ -400,6 +400,51 @@
       repeating-conic-gradient(#e9bb6c 0 25%, #1a1814 0 50%) 0 0 / 50% 50%;
     opacity: 0.85;
   }
+
+  @keyframes chess-drift {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, 16px, 0);
+    }
+  }
+  .chess-drift {
+    animation: chess-drift 22s ease-in-out infinite;
+  }
+
+  @keyframes chess-float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-8deg);
+    }
+    50% {
+      transform: translateY(-18px) rotate(-3deg);
+    }
+  }
+  .chess-float {
+    animation: chess-float 16s ease-in-out infinite;
+  }
+
+  .chess-coords-track {
+    animation: marquee 52s linear infinite;
+  }
+
+  @keyframes chess-pulse-sq {
+    0%,
+    100% {
+      background: rgb(var(--gold) / 0.18);
+      box-shadow: 0 0 0 0 rgb(var(--gold) / 0);
+    }
+    50% {
+      background: rgb(var(--gold) / 0.45);
+      box-shadow: 0 0 28px 0 rgb(var(--gold) / 0.35);
+    }
+  }
+  .chess-pulse-sq {
+    animation: chess-pulse-sq 3.6s ease-in-out infinite;
+  }
 }
 
 /* Respect users who ask for less motion */
