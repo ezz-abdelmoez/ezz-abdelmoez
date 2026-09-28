@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, MapPin } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import { ChessAtmosphere } from "@/components/chess/chess-atmosphere";
-import { CountStat } from "@/components/effects/count-stat";
-import { Magnetic } from "@/components/effects/magnetic";
 import { GlowOrb } from "./primitives";
 
 function RotatingWord({ words }: { words: string[] }) {
@@ -97,19 +95,19 @@ export function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Magnetic
+              <a
                 href={hero.primaryCta.href}
-                className="group inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors duration-300 hover:bg-gold hover:shadow-[0_16px_40px_-16px_rgb(var(--gold))]"
+                className="group inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_16px_40px_-16px_rgb(var(--gold))]"
               >
                 {hero.primaryCta.label}
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Magnetic>
-              <Magnetic
+              </a>
+              <a
                 href={hero.secondaryCta.href}
                 className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 text-sm text-white/80 transition-colors duration-300 hover:border-white/35 hover:text-white"
               >
                 {hero.secondaryCta.label}
-              </Magnetic>
+              </a>
 
               <div className="ml-1 flex items-center gap-1">
                 <a
@@ -192,9 +190,7 @@ export function Hero() {
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.06] md:grid-cols-4">
           {heroStats.map((stat) => (
             <div key={stat.label} className="bg-background/80 px-5 py-6 backdrop-blur-sm">
-              <p className="font-display text-2xl text-white md:text-3xl">
-                <CountStat value={stat.value} />
-              </p>
+              <p className="font-display text-2xl text-white md:text-3xl">{stat.value}</p>
               <p className="mt-1 whitespace-pre-line text-xs leading-snug text-white/45">
                 {stat.label}
               </p>

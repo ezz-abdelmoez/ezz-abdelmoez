@@ -11,7 +11,6 @@ import { SiteFooter } from "@/components/portfolio/site-footer";
 import { SiteHeader } from "@/components/portfolio/site-header";
 import { Skills } from "@/components/portfolio/skills";
 import { Teaching } from "@/components/portfolio/teaching";
-import { GoldSpotlight } from "@/components/effects/gold-spotlight";
 import { useSiteContent } from "@/lib/site-content";
 
 export function PortfolioPage() {
@@ -26,7 +25,6 @@ export function PortfolioPage() {
         Skip to content
       </a>
 
-      <GoldSpotlight />
       <SiteHeader />
 
       <main id="main" className="relative overflow-x-clip">

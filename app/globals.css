@@ -445,33 +445,6 @@
   .chess-pulse-sq {
     animation: chess-pulse-sq 3.6s ease-in-out infinite;
   }
-
-  .gold-spotlight {
-    opacity: 0;
-    background: radial-gradient(
-      420px circle at var(--sx, 50%) var(--sy, 40%),
-      rgb(var(--gold) / 0.11),
-      transparent 58%
-    );
-    mix-blend-mode: screen;
-    transition: opacity 0.4s ease;
-  }
-
-  @keyframes chess-move-in {
-    from {
-      opacity: 0;
-      transform: translate3d(-16px, 12px, 0);
-      filter: blur(8px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-      filter: none;
-    }
-  }
-  .chess-move-in {
-    animation: chess-move-in 0.48s cubic-bezier(0.22, 1, 0.36, 1);
-  }
 }
 
 /* Respect users who ask for less motion */
