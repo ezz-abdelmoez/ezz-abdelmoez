@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
 import { TrackLinks, TrackMenu } from "@/components/portfolio/track-links";
+import { Magnetic } from "@/components/effects/magnetic";
 import { useSiteContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
@@ -92,12 +93,21 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Reading progress */}
+      {/* Reading progress — a rank of eight squares */}
       <div
         aria-hidden="true"
-        className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-gold via-gold-soft to-gold/30 transition-transform duration-150"
-        style={{ transform: `scaleX(${progress})` }}
-      />
+        className="fixed inset-x-0 top-0 z-[60] flex h-[3px] gap-px"
+      >
+        {Array.from({ length: 8 }).map((_, i) => (
+          <span
+            key={i}
+            className={cn(
+              "h-full flex-1 transition-colors duration-300",
+              i < Math.round(progress * 8) ? "bg-gold" : "bg-white/10",
+            )}
+          />
+        ))}
+      </div>
 
       <header
         className={cn(
@@ -171,21 +181,21 @@ export function SiteHeader() {
                 Email
               </a>
               {resumeReady ? (
-                <a
+                <Magnetic
                   href={resumeHref}
                   download
-                  className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
+                  className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-colors duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
                 >
                   <Download className="h-3.5 w-3.5" />
                   Résumé
-                </a>
+                </Magnetic>
               ) : (
-                <a
+                <Magnetic
                   href="#documents"
-                  className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
+                  className="inline-flex h-9 items-center gap-2 rounded-full bg-white px-4 text-sm font-medium text-black transition-colors duration-300 hover:bg-gold hover:shadow-[0_10px_30px_-12px_rgb(var(--gold))]"
                 >
                   Documents
-                </a>
+                </Magnetic>
               )}
             </div>
 
