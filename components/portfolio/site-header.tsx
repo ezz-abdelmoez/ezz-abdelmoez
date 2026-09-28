@@ -124,6 +124,7 @@ export function SiteHeader() {
               <span className="font-display text-xl text-white transition-colors group-hover:text-gold">
                 Ezz
               </span>
+              <span className="chess-mark hidden sm:inline-grid" />
               <span className="hidden font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 sm:inline">
                 {copy.headerSubtitle}
               </span>

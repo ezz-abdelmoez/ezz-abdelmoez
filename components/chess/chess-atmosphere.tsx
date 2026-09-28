@@ -1,0 +1,17 @@
+"use client";
+
+export function ChessAtmosphere() {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    >
+      <div className="chess-hero-board mask-fade-b absolute -right-[18%] top-[12%] hidden h-[540px] w-[540px] opacity-[0.16] lg:block" />
+      <div className="chess-hero-board absolute -left-24 bottom-10 h-44 w-44 rotate-[-8deg] opacity-[0.07]" />
+    </div>
+  );
+}
+
+export function ChessMark({ className = "" }: { className?: string }) {
+  return <span aria-hidden="true" className={`chess-mark ${className}`} />;
+}
