@@ -6,7 +6,6 @@ import { ArrowUpRight, Check, Github, Layers } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import type { Project } from "@/lib/site-types";
 import { ChessBackdrop } from "@/components/chess/chess-backdrop";
-import { Magnetic } from "@/components/effects/magnetic";
 import { Chip, GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
@@ -97,7 +96,7 @@ function ProjectDetail({ project, index }: { project: Project; index: number }) 
   return (
     <article
       id="project-detail"
-      className="chess-move-in surface relative overflow-hidden rounded-3xl p-6 md:p-8"
+      className="surface relative overflow-hidden rounded-3xl p-6 md:p-8"
     >
       <div className="mb-5 flex flex-wrap items-center gap-3">
         <span className="font-mono text-[11px] tracking-[0.2em] text-gold/70">
@@ -149,15 +148,15 @@ function ProjectDetail({ project, index }: { project: Project; index: number }) 
             <ArrowUpRight className="h-4 w-4" />
           </Link>
           {project.demo && (
-            <Magnetic
+            <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/cta inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black transition-colors duration-300 hover:bg-gold hover:shadow-[0_14px_36px_-16px_rgb(var(--gold))]"
+              className="group/cta inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black transition-all duration-300 hover:bg-gold hover:shadow-[0_14px_36px_-16px_rgb(var(--gold))]"
             >
               {hostOf(project.demo) || "Live demo"}
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
-            </Magnetic>
+            </a>
           )}
           {project.repo && (
             <a
@@ -228,7 +227,7 @@ export function Projects() {
           </Reveal>
 
           <Reveal delay={80} className="lg:sticky lg:top-28">
-            <ProjectDetail key={selected.slug} project={selected} index={index} />
+            <ProjectDetail project={selected} index={index} />
           </Reveal>
         </div>
       )}
