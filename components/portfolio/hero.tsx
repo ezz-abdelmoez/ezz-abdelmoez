@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, MapPin } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
+import { ChessAtmosphere } from "@/components/chess/chess-atmosphere";
 import { GlowOrb } from "./primitives";
 
 function RotatingWord({ words }: { words: string[] }) {
@@ -42,6 +43,7 @@ export function Hero() {
       {/* ── Backdrop ───────────────────────────────────────────── */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="bg-grid mask-fade-b absolute inset-0 opacity-70" />
+        <ChessAtmosphere />
         <GlowOrb className="animate-aurora -left-32 top-[-10%] h-[520px] w-[520px]" color="gold" />
         <GlowOrb
           className="animate-aurora right-[-10%] top-[10%] h-[560px] w-[560px]"
