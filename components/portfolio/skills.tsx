@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
+import { ChessBackdrop } from "@/components/chess/chess-backdrop";
 import { Chip, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
@@ -39,7 +40,15 @@ export function Skills() {
   const { learning, skillGroups, copy } = useSiteContent();
 
   return (
-    <Section id="skills" className="border-t border-white/[0.06]">
+    <Section
+      id="skills"
+      className="border-t border-white/[0.06]"
+      bleed={
+        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
+          <ChessBackdrop motif="coords" />
+        </div>
+      }
+    >
       <SectionHeader
         index={copy.skills.index}
         eyebrow={copy.skills.eyebrow}

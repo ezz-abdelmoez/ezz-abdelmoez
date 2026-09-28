@@ -2,6 +2,7 @@
 
 import { Award, Briefcase, GraduationCap, Languages as LanguagesIcon } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
+import { ChessBackdrop } from "@/components/chess/chess-backdrop";
 import { Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
@@ -10,7 +11,15 @@ export function Experience() {
   const { certifications, education, languages, timeline, copy } = useSiteContent();
 
   return (
-    <Section id="experience" className="border-t border-white/[0.06]">
+    <Section
+      id="experience"
+      className="border-t border-white/[0.06]"
+      bleed={
+        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
+          <ChessBackdrop motif="rank" />
+        </div>
+      }
+    >
       <SectionHeader
         index={copy.experience.index}
         eyebrow={copy.experience.eyebrow}

@@ -3,6 +3,7 @@
 import { Download, FileSignature, FileText, Upload } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import type { DocumentAsset } from "@/lib/site-types";
+import { ChessBackdrop } from "@/components/chess/chess-backdrop";
 import { GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 
@@ -68,6 +69,7 @@ export function Documents() {
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
           <GlowOrb className="right-[-10%] top-1/3 h-[420px] w-[420px]" color="cyan" />
+          <ChessBackdrop motif="grid" />
         </div>
       }
     >
