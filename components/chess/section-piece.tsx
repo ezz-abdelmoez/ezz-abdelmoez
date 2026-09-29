@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ChessPiece, type ChessPieceName } from "@/components/chess/pieces";
-import { useSiteContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
 export type { ChessPieceName };
@@ -16,11 +15,6 @@ const GHOST_POS: Record<ChessPieceName, string> = {
   pawn: "-right-[5%] top-[10%] h-[280px] w-[280px] xl:h-[320px] xl:w-[320px]",
 };
 
-export function useHomeChess() {
-  const { slug } = useSiteContent();
-  return slug === "home";
-}
-
 export function SectionPieceGlyph({
   piece,
   square,
@@ -28,9 +22,6 @@ export function SectionPieceGlyph({
   piece: ChessPieceName;
   square?: string;
 }) {
-  const home = useHomeChess();
-  if (!home) return null;
-
   return (
     <span className="inline-flex items-center gap-1.5" aria-hidden="true">
       <span className="inline-flex h-6 w-6 items-center justify-center rounded-[3px] border border-gold/25 bg-gold/10 text-gold">
@@ -52,13 +43,10 @@ export function SectionPieceGhost({
   piece: ChessPieceName;
   className?: string;
 }) {
-  const home = useHomeChess();
   const ref = useRef<HTMLDivElement>(null);
   const [placed, setPlaced] = useState(false);
 
   useEffect(() => {
-    if (!home) return;
-
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       setPlaced(true);
@@ -85,9 +73,7 @@ export function SectionPieceGhost({
 
     observer.observe(target);
     return () => observer.disconnect();
-  }, [home]);
-
-  if (!home) return null;
+  }, []);
 
   return (
     <div

@@ -18,15 +18,15 @@ const MID = new Vector3(2.8, 4.2, 6.2);
 const FAR = new Vector3(0.2, 9.4, 11.2);
 const LOOK = new Vector3(0, 0.15, 0);
 
-function easeInOut(t: number) {
+export function easeInOut(t: number) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-function clamp01(v: number) {
+export function clamp01(v: number) {
   return Math.min(1, Math.max(0, v));
 }
 
-function squarePos(file: number, rank: number, y = 0.22): [number, number, number] {
+export function squarePos(file: number, rank: number, y = 0.22): [number, number, number] {
   return [file - 3.5, y, 3.5 - rank];
 }
 
@@ -67,7 +67,7 @@ function useBoardTextures() {
   return { dark, light };
 }
 
-function Board() {
+export function Board() {
   const { dark, light } = useBoardTextures();
   const squares = useMemo(() => {
     const list: { x: number; z: number; dark: boolean; key: string }[] = [];
@@ -127,7 +127,7 @@ function PieceMaterial({ tone }: { tone: "gold" | "ink" }) {
   );
 }
 
-function Pawn({ tone }: { tone: "gold" | "ink" }) {
+export function Pawn({ tone }: { tone: "gold" | "ink" }) {
   const geo = useMemo(
     () =>
       lathe([
@@ -150,7 +150,7 @@ function Pawn({ tone }: { tone: "gold" | "ink" }) {
   );
 }
 
-function King({ tone }: { tone: "gold" | "ink" }) {
+export function King({ tone }: { tone: "gold" | "ink" }) {
   const body = useMemo(
     () =>
       lathe([
@@ -183,7 +183,7 @@ function King({ tone }: { tone: "gold" | "ink" }) {
   );
 }
 
-function Queen({ tone }: { tone: "gold" | "ink" }) {
+export function Queen({ tone }: { tone: "gold" | "ink" }) {
   const body = useMemo(
     () =>
       lathe([
@@ -212,7 +212,7 @@ function Queen({ tone }: { tone: "gold" | "ink" }) {
   );
 }
 
-function Knight({ tone }: { tone: "gold" | "ink" }) {
+export function Knight({ tone }: { tone: "gold" | "ink" }) {
   return (
     <group>
       <mesh castShadow>

@@ -1,0 +1,212 @@
+/* Experimental lab — scoped to /preview. Do not copy onto live tracks
+   until the motion is approved. */
+
+.preview-lab main {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.hero-plate-grain {
+  background-image: repeating-conic-gradient(
+    rgb(255 255 255 / 0.09) 0% 25%,
+    transparent 0% 50%
+  );
+  background-size: 3px 3px;
+}
+
+.preview-banner {
+  pointer-events: none;
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  z-index: 70;
+  display: flex;
+  translate: -50% 0;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 999px;
+  background: rgb(10 11 13 / 0.82);
+  padding: 0.45rem 0.5rem 0.45rem 0.9rem;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 0.72rem;
+  backdrop-filter: blur(16px);
+}
+
+.preview-banner-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: rgb(var(--gold));
+  box-shadow: 0 0 0 4px rgb(var(--gold) / 0.15);
+}
+
+.preview-banner-kicker {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(var(--gold) / 0.85);
+}
+
+.preview-banner-sep {
+  color: rgb(255 255 255 / 0.28);
+}
+
+.preview-banner-label {
+  color: rgb(255 255 255 / 0.62);
+}
+
+.preview-banner-link {
+  pointer-events: auto;
+  margin-left: 0.15rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.08);
+  padding: 0.35rem 0.7rem;
+  color: rgb(255 255 255 / 0.88);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.preview-banner-link:hover {
+  background: rgb(var(--gold) / 0.18);
+  color: white;
+}
+
+@supports (animation-timeline: view()) {
+  /* Replace the one-shot Reveal with scroll-linked entrance. */
+  .preview-lab .reveal,
+  .preview-lab .reveal.is-visible {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+    animation: preview-enter linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+
+  .preview-lab #top img {
+    animation: preview-portrait linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .preview-lab .group\/tile img {
+    animation: preview-shot linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .preview-lab .chess-place,
+  .preview-lab .chess-place.is-placed {
+    opacity: 0.09;
+    animation: preview-ghost linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .preview-lab main > section:not(#top)::before {
+    content: "";
+    position: absolute;
+    inset-inline: 8%;
+    top: 0;
+    z-index: 4;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgb(var(--gold) / 0.55),
+      transparent
+    );
+    transform-origin: center;
+    animation: preview-rule linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+}
+
+@keyframes preview-enter {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate3d(0, 36px, 0);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes preview-portrait {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(0, 6%, 0);
+  }
+}
+
+@keyframes preview-shot {
+  from {
+    transform: scale(1.08) translate3d(0, -3%, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(0, 4%, 0);
+  }
+}
+
+@keyframes preview-ghost {
+  from {
+    opacity: 0.04;
+    transform: translate3d(0, 48px, 0);
+  }
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -36px, 0);
+  }
+}
+
+@keyframes preview-rule {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .preview-banner {
+    left: 1rem;
+    right: 4.5rem;
+    translate: 0;
+    justify-content: flex-start;
+  }
+  .preview-banner-label {
+    display: none;
+  }
+}
+
+@media print {
+  .preview-banner {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-lab .reveal,
+  .preview-lab .reveal.is-visible,
+  .preview-lab #top img,
+  .preview-lab .group\/tile img,
+  .preview-lab .chess-place,
+  .preview-lab .chess-place.is-placed,
+  .preview-lab main > section:not(#top)::before {
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
