@@ -1,6 +1,5 @@
 "use client";
 
-import { useSiteContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
 export type ChessMotif = "empty" | "scoresheet";
@@ -66,9 +65,6 @@ export function ChessBackdrop({
   motif: ChessMotif;
   className?: string;
 }) {
-  const { slug } = useSiteContent();
-  if (slug !== "home") return null;
-
   const Motif = motifs[motif];
 
   return (

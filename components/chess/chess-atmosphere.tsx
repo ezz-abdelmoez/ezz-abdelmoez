@@ -1,11 +1,4 @@
-"use client";
-
-import { useSiteContent } from "@/lib/site-content";
-
 export function ChessAtmosphere() {
-  const { slug } = useSiteContent();
-  if (slug !== "home") return null;
-
   return (
     <div
       aria-hidden="true"
