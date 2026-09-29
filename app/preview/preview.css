@@ -6,6 +6,14 @@
   overflow-y: visible;
 }
 
+.hero-plate-grain {
+  background-image: repeating-conic-gradient(
+    rgb(255 255 255 / 0.09) 0% 25%,
+    transparent 0% 50%
+  );
+  background-size: 3px 3px;
+}
+
 .preview-banner {
   pointer-events: none;
   position: fixed;
