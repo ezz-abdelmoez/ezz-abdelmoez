@@ -401,34 +401,22 @@
     opacity: 0.85;
   }
 
-  @keyframes chess-drift {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
+  @keyframes chess-place {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
     }
-    50% {
-      transform: translate3d(0, 16px, 0);
-    }
-  }
-  .chess-drift {
-    animation: chess-drift 22s ease-in-out infinite;
-  }
-
-  @keyframes chess-float {
-    0%,
-    100% {
-      transform: translateY(0) rotate(-8deg);
-    }
-    50% {
-      transform: translateY(-18px) rotate(-3deg);
+    to {
+      opacity: 0.09;
+      transform: translateY(0);
     }
   }
-  .chess-float {
-    animation: chess-float 16s ease-in-out infinite;
+  .chess-place {
+    opacity: 0;
+    transform: translateY(14px);
   }
-
-  .chess-coords-track {
-    animation: marquee 52s linear infinite;
+  .chess-place.is-placed {
+    animation: chess-place 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   @keyframes chess-pulse-sq {
@@ -464,5 +452,11 @@
     opacity: 1;
     transform: none;
     filter: none;
+  }
+  .chess-place,
+  .chess-place.is-placed {
+    opacity: 0.09 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }

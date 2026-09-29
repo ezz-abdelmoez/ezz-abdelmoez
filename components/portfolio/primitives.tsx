@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  SectionPieceGlyph,
+  type ChessPieceName,
+} from "@/components/chess/section-piece";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------------------------------------------ */
@@ -87,6 +91,8 @@ export function SectionHeader({
   lead,
   align = "left",
   className,
+  piece,
+  square,
 }: {
   index?: string;
   eyebrow: string;
@@ -94,6 +100,8 @@ export function SectionHeader({
   lead?: ReactNode;
   align?: "left" | "center";
   className?: string;
+  piece?: ChessPieceName;
+  square?: string;
 }) {
   return (
     <Reveal
@@ -112,6 +120,7 @@ export function SectionHeader({
         {index && (
           <span className="font-mono text-[11px] tracking-[0.2em] text-gold/70">{index}</span>
         )}
+        {piece && <SectionPieceGlyph piece={piece} square={square} />}
         <span className="h-px w-6 bg-gold/40" aria-hidden="true" />
         <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/45">
           {eyebrow}

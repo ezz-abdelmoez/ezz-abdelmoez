@@ -69,7 +69,7 @@ export function Documents() {
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
           <GlowOrb className="right-[-10%] top-1/3 h-[420px] w-[420px]" color="cyan" />
-          <ChessBackdrop motif="grid" />
+          <ChessBackdrop motif="scoresheet" />
         </div>
       }
     >

@@ -2,7 +2,7 @@
 
 import { Quote } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
-import { ChessBackdrop } from "@/components/chess/chess-backdrop";
+import { SectionPieceGhost } from "@/components/chess/section-piece";
 import { GlowOrb, Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 
@@ -15,7 +15,7 @@ export function About() {
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
           <GlowOrb className="-left-40 top-1/3 h-[420px] w-[420px]" color="gold" />
-          <ChessBackdrop motif="file" />
+          <SectionPieceGhost piece="bishop" />
         </div>
       }
     >
@@ -23,6 +23,8 @@ export function About() {
         index={copy.about.index}
         eyebrow={copy.about.eyebrow}
         title={<SectionTitle copy={copy.about} />}
+        piece="bishop"
+        square="c1"
       />
 
       <div className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20">

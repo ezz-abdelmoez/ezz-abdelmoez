@@ -2,7 +2,7 @@
 
 import { Award, Briefcase, GraduationCap, Languages as LanguagesIcon } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
-import { ChessBackdrop } from "@/components/chess/chess-backdrop";
+import { SectionPieceGhost } from "@/components/chess/section-piece";
 import { Reveal, Section, SectionHeader } from "./primitives";
 import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ export function Experience() {
       className="border-t border-white/[0.06]"
       bleed={
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
-          <ChessBackdrop motif="rank" />
+          <SectionPieceGhost piece="rook" />
         </div>
       }
     >
@@ -25,6 +25,8 @@ export function Experience() {
         eyebrow={copy.experience.eyebrow}
         title={<SectionTitle copy={copy.experience} />}
         lead={copy.experience.lead}
+        piece="rook"
+        square="a1"
       />
 
       <div className="grid gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
