@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, MapPin } from "lucide-react";
 import { useSiteContent } from "@/lib/site-content";
 import { ChessAtmosphere } from "@/components/chess/chess-atmosphere";
+import { ChessPiece } from "@/components/chess/pieces";
 import { GlowOrb } from "./primitives";
 
 function RotatingWord({ words }: { words: string[] }) {
@@ -35,8 +36,9 @@ function RotatingWord({ words }: { words: string[] }) {
 }
 
 export function Hero() {
-  const { profile, contactLinks, coreStack, heroStats, hero } = useSiteContent();
+  const { profile, contactLinks, coreStack, heroStats, hero, slug } = useSiteContent();
   const [leftChip, rightChip] = hero.chips;
+  const homeChess = slug === "home";
 
   return (
     <section id="top" className="noise relative isolate overflow-hidden">
@@ -61,6 +63,14 @@ export function Hero() {
           {/* ── Copy ─────────────────────────────────────────── */}
           <div>
             <div className="mb-7 flex flex-wrap items-center gap-x-4 gap-y-2">
+              {homeChess && (
+                <span
+                  aria-hidden="true"
+                  className="inline-flex h-6 w-6 items-center justify-center rounded-[3px] border border-gold/25 bg-gold/10 text-gold sm:hidden"
+                >
+                  <ChessPiece piece="king" className="h-3.5 w-3.5" />
+                </span>
+              )}
               <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/[0.07] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-gold" />
@@ -139,6 +149,15 @@ export function Hero() {
                 aria-hidden="true"
                 className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-gold/20 via-transparent to-violet-500/10 blur-2xl"
               />
+
+              {homeChess && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-3 -top-3 z-10 hidden h-11 w-11 items-center justify-center rounded-xl border border-gold/30 bg-background/90 text-gold shadow-[0_10px_28px_-16px_rgb(var(--gold)/0.85)] backdrop-blur-md sm:flex"
+                >
+                  <ChessPiece piece="king" className="h-5 w-5" />
+                </span>
+              )}
 
               <div className="surface relative overflow-hidden rounded-[2rem] p-2">
                 <div className="relative overflow-hidden rounded-[1.6rem]">
