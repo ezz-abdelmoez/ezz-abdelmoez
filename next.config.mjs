@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   // Type errors now fail the build — the codebase is clean, keep it that way.
   typescript: {
     ignoreBuildErrors: false,
