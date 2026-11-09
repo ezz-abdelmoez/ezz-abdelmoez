@@ -44,6 +44,8 @@ docker compose up --build
 
 Then open `http://localhost:3000`.
 
+The image is **Debian slim** (`node:22-bookworm-slim`), not Alpine. Alpine `apk` talks to `dl-cdn.alpinelinux.org`, which often fails DNS inside Coolify build containers even when `github.com` works on the host.
+
 ## If the build runs out of memory
 
 On a small VPS, set a build-time variable:
