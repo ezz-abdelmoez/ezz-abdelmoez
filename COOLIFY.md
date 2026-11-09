@@ -44,6 +44,10 @@ docker compose up --build
 
 Then open `http://localhost:3000`.
 
+The image is **Alpine** (`node:22-alpine`) with **no `apk add`**. That is the same pattern as the Emdad Coolify deploy. The previous fail was `apk` hitting `dl-cdn.alpinelinux.org`, not Alpine itself.
+
+No database, drizzle, patches, or media volume — this site does not need them.
+
 ## If the build runs out of memory
 
 On a small VPS, set a build-time variable:
