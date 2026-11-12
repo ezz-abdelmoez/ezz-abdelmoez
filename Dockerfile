@@ -1,42 +1,36 @@
 # syntax=docker/dockerfile:1
-# Production image for Coolify (and any Docker host).
-# Debian slim — avoids Alpine apk CDN DNS failures during build.
-# Next.js standalone server binds 0.0.0.0:3000.
+# Coolify or an Ubuntu VPS: multi-stage build ending in a slim standalone runner.
+# Next.js `output: "standalone"` + `node server.js`
+# Same Alpine pattern as the Emdad deploy — no `apk add`, so the build
+# never talks to dl-cdn.alpinelinux.org.
 
-FROM node:22-bookworm-slim AS base
-WORKDIR /app
-ENV NEXT_TELEMETRY_DISABLED=1
-RUN corepack enable && corepack prepare pnpm@10 --activate
+FROM node:22-alpine AS base
+ENV PNPM_HOME="/pnpm" PATH="/pnpm:$PATH" NEXT_TELEMETRY_DISABLED=1
+RUN corepack enable
 
 FROM base AS deps
+WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
+WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NODE_ENV=production
 ENV NODE_OPTIONS=--max-old-space-size=2048
-RUN pnpm run build
+RUN pnpm build
 
-FROM node:22-bookworm-slim AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
-
-RUN groupadd --system --gid 1001 nodejs \
-  && useradd --system --uid 1001 --gid nodejs nextjs
-
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
+RUN addgroup -S nodejs && adduser -S nextjs -G nodejs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
 USER nextjs
+ENV PORT=3000 HOSTNAME=0.0.0.0
 EXPOSE 3000
-
-HEALTHCHECK --interval=30s --timeout=5s --start-period=25s --retries=3 \
-  CMD node -e "fetch('http://127.0.0.1:'+(process.env.PORT||3000)).then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
-
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1
 CMD ["node", "server.js"]
