@@ -19,7 +19,7 @@ export function PreviewLab({ children }: { children: ReactNode }) {
           <span className="preview-banner-sep" aria-hidden="true">
             ·
           </span>
-          <span className="preview-banner-label">Hero plate</span>
+          <span className="preview-banner-label">Editorial motion</span>
           <Link href="/" className="preview-banner-link">
             Live site
           </Link>
