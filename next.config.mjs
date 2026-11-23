@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
+  // Type errors now fail the build — the codebase is clean, keep it that way.
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
     unoptimized: true,
   },
-}
+  poweredByHeader: false,
+  compress: true,
+};
 
-export default nextConfig
+export default nextConfig;

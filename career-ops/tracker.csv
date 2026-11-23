@@ -1,0 +1,4 @@
+date,company,role,source_url,archetype,score,portfolio_url,cv_file,cover_file,status,follow_up_on,notes
+# status: spotted | evaluated | applied | interview | offer | rejected | skipped
+# archetype: backend-engineer | full-stack | software-engineer | frontend-engineer | desktop-engineer
+# score: 1-5 from career-ops. Skip below 4.

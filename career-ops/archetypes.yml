@@ -1,0 +1,107 @@
+# How to pick a portfolio track + attachments for a job.
+# career-ops reads archetypes from profile.yml.
+# This file is the human map: title in the JD → what you send.
+
+base_url: "https://v0-ezz-abdelmoez.vercel.app"
+
+# Rule: match the JOB TITLE, not what you wish the job was.
+# If the posting says Backend, send Backend — even if you can also do React.
+
+tracks:
+  - id: backend-engineer
+    titles:
+      - "Backend Engineer"
+      - "Backend Developer"
+      - ".NET Developer"
+      - "ASP.NET Developer"
+      - "C# Developer"
+      - "API Developer"
+    fit: primary
+    portfolio: "https://v0-ezz-abdelmoez.vercel.app/backend-engineer"
+    cv: "public/backend-engineer/Ezz-Abdelmoez-Backend-Engineer-CV.pdf"
+    cover_letter: "public/backend-engineer/Ezz-Abdelmoez-Backend-Engineer-Cover-Letter.pdf"
+    keywords:
+      - ASP.NET Core
+      - Web API
+      - C#
+      - Entity Framework
+      - SQL Server
+      - JWT
+      - REST
+
+  - id: full-stack
+    titles:
+      - "Full Stack Developer"
+      - "Full-Stack Engineer"
+      - ".NET Full Stack"
+      - "React + .NET"
+    fit: primary
+    portfolio: "https://v0-ezz-abdelmoez.vercel.app/"
+    cv: "public/full-stack/Ezz-Abdelmoez-Full-Stack-CV.pdf"
+    cover_letter: "public/full-stack/Ezz-Abdelmoez-Full-Stack-Cover-Letter.pdf"
+    keywords:
+      - ASP.NET Core
+      - React
+      - SQL Server
+      - Full stack
+
+  - id: software-engineer
+    titles:
+      - "Software Engineer"
+      - "Software Developer"
+      - "Programmer"
+    fit: primary
+    portfolio: "https://v0-ezz-abdelmoez.vercel.app/software-engineer"
+    cv: "public/software-engineer/Ezz-Abdelmoez-Software-Engineer-CV.pdf"
+    cover_letter: "public/software-engineer/Ezz-Abdelmoez-Software-Engineer-Cover-Letter.pdf"
+    keywords:
+      - software engineering
+      - .NET
+      - React
+      - clean architecture
+
+  - id: frontend-engineer
+    titles:
+      - "Frontend Engineer"
+      - "Frontend Developer"
+      - "React Developer"
+      - "Next.js Developer"
+      - "UI Engineer"
+    fit: secondary
+    portfolio: "https://v0-ezz-abdelmoez.vercel.app/frontend-engineer"
+    cv: "public/frontend-engineer/Ezz-Abdelmoez-Frontend-Engineer-CV.pdf"
+    cover_letter: "public/frontend-engineer/Ezz-Abdelmoez-Frontend-Engineer-Cover-Letter.pdf"
+    keywords:
+      - React
+      - Next.js
+      - TypeScript
+      - Tailwind
+      - JavaScript
+
+  - id: desktop-engineer
+    titles:
+      - "Desktop Engineer"
+      - "Desktop Developer"
+      - "WPF Developer"
+      - "WinForms Developer"
+      - "Windows Application Developer"
+    fit: secondary
+    portfolio: "https://v0-ezz-abdelmoez.vercel.app/desktop-engineer"
+    cv: "public/desktop-engineer/Ezz-Abdelmoez-Desktop-Engineer-CV.pdf"
+    cover_letter: "public/desktop-engineer/Ezz-Abdelmoez-Desktop-Engineer-Cover-Letter.pdf"
+    keywords:
+      - WPF
+      - WinForms
+      - Windows Forms
+      - MVVM
+      - C#
+      - XAML
+
+decision_rules:
+  - "If the title contains Backend / API / ASP.NET Core and not React → backend-engineer"
+  - "If the title contains React / Next / Frontend and not .NET API → frontend-engineer"
+  - "If the title contains WPF / WinForms / Desktop / Windows Forms → desktop-engineer"
+  - "If the title contains Full Stack or .NET and React together → full-stack"
+  - "If the title is generic Software Engineer / Developer → software-engineer"
+  - "Do not apply below score 4.0 / 5"
+  - "Never auto-submit. Review the PDF, then you click Apply."
