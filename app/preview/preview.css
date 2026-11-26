@@ -1,5 +1,9 @@
 /* Experimental lab — scoped to /preview. Do not copy onto live tracks
-   until the motion is approved. */
+   until the motion is approved.
+
+   Visual cues (not source) from HorizonX KILN + Kai Rennard:
+   curved section entries, editorial type, cinematic portrait gate.
+   No Lenis, no GSAP, no copied code. */
 
 .preview-lab main {
   overflow-x: clip;
@@ -71,8 +75,108 @@
   color: white;
 }
 
+/* Editorial type — Kai-like scale, still the same copy */
+.preview-lab #top h1 {
+  letter-spacing: -0.045em;
+  font-size: clamp(3rem, 9.2vw, 6.35rem);
+}
+
+.preview-lab #top h1 + p {
+  max-width: 34rem;
+}
+
+.preview-lab h2.font-display {
+  letter-spacing: -0.035em;
+}
+
+/* Cinematic portrait gate on load */
+.preview-lab #top .surface {
+  animation: preview-gate 1.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes preview-gate {
+  from {
+    clip-path: inset(100% 0 0 0);
+    filter: brightness(0.45);
+  }
+  to {
+    clip-path: inset(0);
+    filter: brightness(1);
+  }
+}
+
+.preview-lab #top h1 > span {
+  animation: preview-line 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.preview-lab #top h1 > span:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.preview-lab #top h1 + p {
+  animation: preview-line 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.preview-lab #top h1 + p + div {
+  animation: preview-line 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+}
+
+@keyframes preview-line {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.55em, 0);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.preview-lab #top .surface {
+  position: relative;
+}
+
+.preview-lab #top .surface::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  top: -40%;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--gold) / 0.28),
+    transparent
+  );
+  animation: preview-scan 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+@keyframes preview-scan {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(280%);
+    opacity: 0;
+  }
+}
+
+.preview-lab footer p[class*="15vw"] {
+  color: rgb(var(--gold) / 0.14);
+}
+
+.preview-lab #work [role="group"] {
+  perspective: 1400px;
+}
+
 @supports (animation-timeline: view()) {
-  /* Replace the one-shot Reveal with scroll-linked entrance. */
   .preview-lab .reveal,
   .preview-lab .reveal.is-visible {
     opacity: 1;
@@ -84,10 +188,28 @@
     animation-range: entry 0% cover 28%;
   }
 
+  /* KILN-like: section mass arrives curved, then settles flat */
+  .preview-lab main > section:not(#top) {
+    animation: preview-flatten linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 42%;
+  }
+
   .preview-lab #top img {
     animation: preview-portrait linear both;
     animation-timeline: view();
     animation-range: cover 0% cover 100%;
+  }
+
+  .preview-lab .group\/tile {
+    transform-origin: center bottom;
+    animation: preview-tile linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+  }
+
+  .preview-lab #work button[aria-pressed="true"] {
+    z-index: 2;
   }
 
   .preview-lab .group\/tile img {
@@ -138,12 +260,32 @@
   }
 }
 
-@keyframes preview-portrait {
+@keyframes preview-flatten {
   from {
-    transform: scale(1.02) translate3d(0, 0, 0);
+    border-radius: 0 0 3.75rem 3.75rem;
   }
   to {
-    transform: scale(1.1) translate3d(0, 6%, 0);
+    border-radius: 0;
+  }
+}
+
+@keyframes preview-portrait {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(0, 6%, 0);
+  }
+}
+
+@keyframes preview-tile {
+  from {
+    opacity: 0.45;
+    transform: translate3d(0, 36px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -169,7 +311,7 @@
 
 @keyframes preview-rule {
   from {
-    transform: scaleX(0);
+    transform: scaleX(0.2);
     opacity: 0;
   }
   to {
@@ -200,13 +342,22 @@
   .preview-lab .reveal,
   .preview-lab .reveal.is-visible,
   .preview-lab #top img,
+  .preview-lab #top .surface,
+  .preview-lab #top .surface::after,
+  .preview-lab #top h1 > span,
+  .preview-lab #top h1 + p,
+  .preview-lab #top h1 + p + div,
+  .preview-lab .group\/tile,
   .preview-lab .group\/tile img,
   .preview-lab .chess-place,
   .preview-lab .chess-place.is-placed,
+  .preview-lab main > section:not(#top),
   .preview-lab main > section:not(#top)::before {
     animation: none !important;
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
+    clip-path: none !important;
+    border-radius: 0 !important;
   }
 }
